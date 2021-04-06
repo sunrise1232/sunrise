@@ -1,0 +1,32 @@
+.advantages {
+    padding: 70px 0 20px;
+}
+
+.advantage {
+    margin: 0 auto;
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.advantage__img {
+    min-height: 150px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        display: block;
+        max-width: 80%;
+    }
+}
+
+.advantage__title {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.advantage__text {
+    font-size: 15px;
+}

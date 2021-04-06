@@ -1,0 +1,18 @@
+.button {
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $blue;
+    padding: 7px 20px;
+    background: none;
+    border: 1px solid $blue;
+    border-radius: 8px;
+    transition: 0.1s linear all;
+
+    &:hover {
+        color: #fff;
+        font-weight: 400;
+        background-color: $blue;
+    }
+}
+
