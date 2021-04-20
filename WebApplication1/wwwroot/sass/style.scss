@@ -1,0 +1,27 @@
+@import 'fonts';
+@import 'vars';
+
+body {
+    font-family: 'Roboto';
+    font-size: 10px;
+    color: $black;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@import 'buttons';
+@import 'general';
+@import 'header';
+@import 'promo';
+@import 'advantages';
+@import 'footer';
+@import 'service';
+@import 'popular-tours';
+@import 'authorization';
+@import 'catalog';
+@import 'registration';
+@import 'modal';

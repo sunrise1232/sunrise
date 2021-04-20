@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Туры";
+}
+
+
+
+<div class="service">
+    <div class="container">
+        <h3 class="service__title">Каталог</h3>
+        <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
+    </div>
+</div>
+
+
+<section class="catalog">
+    <div class="container">
+        <aside class="catalog__aside">
+        </aside>
+
+        <div class="catalog__content">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <a href="#" class="catalog-item">
+                        <div class="catalog-item__img">
+                            <img src="../../wwwroot/img/slider/slide1.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__content">
+                            <div class="catalog-item__title">name name name name</div>
+                            <div class="catalog-item__city">moscow, studencheskaya</div>
+                            <div class="catalog-item__price">
+                                100 000 <span class="price__currency">BTC</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6">
+                    <a href="#" class="catalog-item">
+                        <div class="catalog-item__img">
+                            <img src="../../wwwroot/img/promo/hill.png" alt="">
+                        </div>
+                        <div class="catalog-item__content">
+                            <div class="catalog-item__title">name name name name</div>
+                            <div class="catalog-item__city">moscow, studencheskaya</div>
+                            <div class="catalog-item__price">
+                                100 000 <span class="price__currency">BTC</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6">
+                    <a href="#" class="catalog-item">
+                        <div class="catalog-item__img">
+                            <img src="../../wwwroot/img/slider/slide1.jpg" alt="">
+                        </div>
+                        <div class="catalog-item__content">
+                            <div class="catalog-item__title">name name name name</div>
+                            <div class="catalog-item__city">moscow, studencheskaya</div>
+                            <div class="catalog-item__price">
+                                100 000 <span class="price__currency">BTC</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@*@foreach(var item in ViewBag.clients)
+            {
+    @item.Name
+            }*@
+
+
+
+<div id="tour" class="modal">
+    <div class="modal__dialog modal__dialog_catalog">
+
+        <div class="tour">
+            <div class="tour__right">
+                <div class="modalCarousel tour__carousel">
+                    <div class="carousel__item"><img src="../../wwwroot/img/promo/hill.png" alt="img"></div>
+                    <div class="carousel__item"><img src="../../wwwroot/img/slider/slide1.jpg" alt="img"></div>
+                    <div class="carousel__item"><img src="../../wwwroot/img/slider/slide1.jpg" alt="img"></div>
+                </div>
+                <div class="tour__title">name name name</div>
+                <div class="tour__descr">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</div>
+                <div class="tour__rating">
+                    10
+                    <i class="far fa-heart"></i>
+                </div>
+
+            </div>
+            <div class="tour__left">
+                количество человек
+                <input type="range">
+                <div class="tour__price">999 999 <span>USD</span></div>
+                <button class="button tour__button">Продолжить</button>
+            </div>
+        </div>
+
+        <i class="fas fa-times modal__close"></i>
+
+    </div>
+</div>

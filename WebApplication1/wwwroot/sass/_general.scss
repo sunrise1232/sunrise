@@ -1,0 +1,74 @@
+.logo {
+    display: block;
+    max-width: 200px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__title {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form__input {
+    display: block;
+    min-width: 250px;
+    padding: 10px 20px;
+    border: 2px solid $blue;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: $black;
+    outline: none;
+    transition: 0.1s linear all;
+
+    &::placeholder {
+        color: $black;
+        opacity: 0.7;
+        font-weight: 300;
+    }
+
+    &:focus {
+        min-width: 300px;
+        border-color: $green;
+    }
+}
+
+.form__label {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+.carousel, .modalCarousel {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel__item img {
+    display: block;
+    width: 100%;
+}
+
+.prevArrow, .nextArrow {
+    border: none;
+    background-color: transparent;
+    padding: 0 20px;
+    font-size: 20px;
+    color: $black;
+}
+
+
+

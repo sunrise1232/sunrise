@@ -1,0 +1,15 @@
+.authorization__reg {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 13px;
+    color: $black;
+
+    a {
+        color: $blue;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

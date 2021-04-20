@@ -1,0 +1,40 @@
+.service {
+    padding: 30px 0;
+    background: url('../img/service-bg1.png') center fixed;
+    overflow: hidden;
+}
+
+.service__title {
+    font-size: 30px;
+}
+
+.service__descr {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.service__right {
+    height: 100%;
+    position: relative;
+    margin-left: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.service__img {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    img {
+        display: block;
+        max-width: 250px;
+    }
+}
+
+
+.service__wrapper {
+    position: relative;
+}

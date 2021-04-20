@@ -1,0 +1,137 @@
+.catalog {
+    margin-top: 50px;
+}
+
+
+.catalog-item {
+    display: block;
+    position: relative;
+    max-width: 450px;
+    height: 450px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0,0,0,0.1);
+    overflow: hidden;
+    color: $black;
+    text-decoration: none;
+    transition: 0.3s ease-in-out all;
+
+    &:hover {
+        color: $black;
+
+        .catalog-item__img img {
+            transform: scale(1.02);
+        }
+
+        border-color: rgba(0,0,0,.3);
+    }
+}
+
+.catalog-item__img {
+    max-width: 100%;
+    min-height: 200px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        display: block;
+        width: 100%;
+        transition: 0.3s ease-in-out all;
+    }
+}
+
+.catalog-item__content {
+    padding: 20px;
+}
+
+.catalog-item__title {
+    font-size: 25px;
+}
+
+.catalog-item__city {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.catalog-item__price {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 6;
+    font-size: 30px;
+
+    span {
+        font-size: 20px;
+        opacity: 0.8;
+    }
+}
+
+
+.tour {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    min-height: 550px;
+}
+
+.tour__right {
+    position: relative;
+    width: 50%;
+    padding-right: 20px;
+}
+
+.tour__carousel {
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.tour__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.tour__descr {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.tour__rating {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    z-index: 21;
+    color: $blue;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    i {
+        margin-left: 6px;
+        transition: 0.1s linear all;
+    } 
+    
+    &:hover {
+        i {
+            transform: scale(1.11);
+        }
+    }
+}
+
+.tour__left {
+    position: relative;
+    width: 50%;
+}
+
+.tour__price {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    z-index: 21;
+    font-size: 35px;
+    
+    span {
+        font-size: 20px;
+        opacity: 0.8;
+    }
+}

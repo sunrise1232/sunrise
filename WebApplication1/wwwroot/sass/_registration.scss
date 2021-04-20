@@ -1,0 +1,54 @@
+.registration {
+    padding: 70px 0;
+}
+
+.registration__inner {
+    display: flex;
+}
+
+
+
+
+.registration__form {
+    width: 50%;
+    position: relative;
+    align-items: end;
+
+    .form__input {
+        min-width: 320px;
+    }
+    
+    .form__input:focus {
+        min-width: 320px;
+    }
+}
+
+.registration__info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.registration__img {
+    margin-top: 60px;
+    img {
+    width: 300px;
+    }
+}
+
+.registration__title {
+    font-size: 30px;
+    margin: 20px 0;
+}
+
+.registration__list {
+    font-size: 15px;
+    list-style: none;
+
+    li i {
+        margin-right: 5px;
+        color: $blue;
+    }
+}

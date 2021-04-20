@@ -1,0 +1,60 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+
+    &_active {
+        display: flex;
+    }
+}
+
+.modal__dialog {
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.modal__close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 21;
+    font-size: 30px;
+    color: rgb(255, 96, 96);
+    cursor: pointer;
+
+}
+
+.modal__dialog_catalog {
+    position: relative;
+    margin: 0 50px;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    background: url(../img/service-bg1.png);
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 50%;
+        height: 100%;
+        z-index: 19;
+        background-color: #fff;
+        
+    }
+}
+
+
