@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Sunrise2._0.Areas.Identity.Data
+
+@inject SignInManager<Client> SignInManager
+@inject UserManager<Client> UserManager
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+
+        <li class="nav__link">
+            <a href="#">
+                @UserManager.GetUserName(User)
+                <i class="fas fa-user" style="margin-left: 5px;"></i>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="nav__link">
+            <a data-modal="authorization" href="#">
+                Авторизация
+                <i class="far fa-user"></i>
+            </a>
+        </li>
+    }
