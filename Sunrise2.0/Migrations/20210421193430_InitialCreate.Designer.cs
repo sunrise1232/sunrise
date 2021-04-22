@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210421081152_initial1")]
-    partial class initial1
+    [Migration("20210421193430_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -230,6 +230,23 @@ namespace Sunrise2._0.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Airline", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Airline");
+                });
+
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Flight", b =>
                 {
                     b.Property<int>("Id")
@@ -266,7 +283,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasIndex("TownId");
 
-                    b.ToTable("hotels");
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Order", b =>
@@ -286,10 +303,9 @@ namespace Sunrise2._0.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Date")
-                        .IsRequired()
+                    b.Property<DateTime>("Date")
                         .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("Meals")
                         .HasColumnType("bit");
@@ -314,7 +330,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasIndex("TourId");
 
-                    b.ToTable("orders");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Provider", b =>
@@ -346,7 +362,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("providers");
+                    b.ToTable("Providers");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Region", b =>
@@ -380,7 +396,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasIndex("ProviderId");
 
-                    b.ToTable("services");
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Staff", b =>
@@ -431,7 +447,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("staffs");
+                    b.ToTable("Staffs");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Tour", b =>
@@ -484,24 +500,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasIndex("RegionId");
 
-                    b.ToTable("towns");
-                });
-
-            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Airline", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Airline");
+                    b.ToTable("Towns");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

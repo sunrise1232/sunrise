@@ -46,6 +46,6 @@ namespace Sunrise2._0.Storage.Entity
 
         [Required]
         [DatabaseGenerated((DatabaseGeneratedOption)DataType.Date)]//?
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }
