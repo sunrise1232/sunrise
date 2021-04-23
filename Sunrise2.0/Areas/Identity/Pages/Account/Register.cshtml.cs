@@ -61,6 +61,27 @@ namespace Sunrise2._0.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            /*[Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Middle Name")]
+            public string MiddleName { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "PhoneNumber")]
+            public string PhoneNumber { get; set; }*/
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -75,7 +96,7 @@ namespace Sunrise2._0.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new Client { UserName = Input.Email, Email = Input.Email };
+                var user = new Client { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

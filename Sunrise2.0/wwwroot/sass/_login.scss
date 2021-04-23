@@ -1,0 +1,44 @@
+.login {
+    background: url('../img/service-bg1.png') center fixed;
+
+}
+
+.login__inner {
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login__dialog {
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.1);
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+
+    i {
+        position: absolute;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(0,0,0,0.3);
+        font-size: 100px;
+        margin-bottom: 20px;
+        transition: 0.1s ease all;
+    }
+
+    .form__title {
+        margin-bottom: 130px;
+    }
+
+    
+}
+
+.form__input:focus ~ .fa-user-circle{
+    color: $blue;
+}

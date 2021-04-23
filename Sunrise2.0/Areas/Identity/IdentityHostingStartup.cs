@@ -20,7 +20,11 @@ namespace Sunrise2._0.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SunriseContextConnection")));
 
-                services.AddDefaultIdentity<Client>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<Client>(options => {
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.SignIn.RequireConfirmedAccount = false;
+                })
                     .AddEntityFrameworkStores<SunriseContext>();
             });
         }

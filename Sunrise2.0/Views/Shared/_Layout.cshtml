@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="image/x-icon" rel="shortcut icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="~/fontawesome-free-5.15.3-web/css/all.min.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="/css/style.min.css">
     <title>@ViewData["Title"]</title>
 </head>
 <body>
@@ -18,29 +18,29 @@
         <div class="container">
             <div class="header__wrapper">
 
-                <a href="../Home" class="logo header__logo">
-                    <img src="img/sunrise.svg" alt="logo">
+                <a href="~/Home" class="logo header__logo">
+                    <img src="~/img/sunrise.svg" alt="logo">
                 </a>
 
                 <ul class="nav">
                     <li class="nav__link has-subnav">
-                        <a href="../Home">Главная</a>
+                        <a href="~/Home">Главная</a>
                         <ul class="subnav">
-                            <li class="subnav__link"><a href="../Home#advantages">О нас</a></li>
-                            <li class="subnav__link"><a href="../Home#cases">Испытать удачу</a></li>
-                            <li class="subnav__link"><a href="../Home#popular-Tours">Популярные туры</a></li>
+                            <li class="subnav__link"><a href="~/Home#advantages">О нас</a></li>
+                            <li class="subnav__link"><a href="~/Home#cases">Испытать удачу</a></li>
+                            <li class="subnav__link"><a href="~/Home#popular-Tours">Популярные туры</a></li>
                         </ul>
                     </li>
 
                     <li class="nav__link">
-                        <a href="../Catalog">Каталог</a>
+                        <a href="~/Catalog">Каталог</a>
                     </li>
 
                     <li class="nav__link">
                         <a href="#">О нас</a>
                     </li>
 
-                    @Html.Partial("_LoginPartial")
+                    <partial name="_LoginPartial"></partial>
 
 
                 </ul>
@@ -51,11 +51,12 @@
 
 
     @RenderBody()
-
+    @*<partial name="../../Areas/Identity/Pages/Account/Login"></partial>
+    <partial name="../../Areas/Identity/Pages/Account/Register"></partial>*@
 
     <footer class="footer">
         <div class="container">
-            <img src="img/footer/under.png" alt="" class="footer__devider">
+            <img src="~/img/footer/under.png" alt="" class="footer__devider">
             <div class="row">
 
                 <div class="col-md-4">
@@ -106,8 +107,8 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/script.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
