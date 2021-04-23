@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sunrise2._0.Manager.OrderManager;
+using Sunrise2._0.Manager.TourManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,9 @@ namespace Sunrise2._0
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<ITourManager, TourManager>();
+            services.AddTransient<IOrderManager, OrderManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

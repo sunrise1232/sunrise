@@ -1,4 +1,4 @@
-﻿@page
+﻿@*@page
 @model LoginModel
 
 @{ViewData["Title"] = "Login";}
@@ -15,16 +15,21 @@
 
         <div class="login1__inner">
             <div class="login1__dialog">
-                <form methot="post" id="account" action="#" class="form">
+                <form methot="post" id="account" class="form">
 
                     <h3 class="form__title">Авторизация</h3>
                     <div asp-validation-summary="All" class="text-danger"></div>
 
-                    <input required asp-for="Input.Email" class="form__input" placeholder="Email" />
+                    <input asp-for="Input.Email" type="email" class="form__input" placeholder="Email" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
 
-                    <input required asp-for="Input.Password" class="form__input" placeholder="Пароль" />
+                    <input asp-for="Input.Password" type="password" class="form__input" placeholder="Пароль" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                    <label asp-for="Input.RememberMe">
+                        <input asp-for="Input.RememberMe" />
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
 
                     <button type="submit" class="button form__button">Войти</button>
                     <i class="fas fa-user-circle"></i>
@@ -38,6 +43,65 @@
 
     </div>
 </section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}*@
+
+
+
+
+@page
+@model LoginModel
+
+@{ViewData["Title"] = "Login";}
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="col-md-10 offset-1">
+    <div class="login-form-icon">
+        <i class="fas fa-user-circle fa-9x text-secondary"></i>
+    </div>
+    <form id="account" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+                <input asp-for="Input.Email" class="form-control" placeholder="Email Address" />
+            </div>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+            </div>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label asp-for="Input.RememberMe">
+                    <input asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial"></partial>

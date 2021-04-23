@@ -6,26 +6,57 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Sunrise2._0.Models;
-using Sunrise2._0.Storage;
-using Sunrise2._0.Data;
+using Sunrise2._0.Manager;
+using Sunrise2._0.Storage.Entity;
+using Sunrise2._0.Manager.OrderManager;
+using Sunrise2._0.Manager.TourManager;
 
 namespace Sunrise2._0.Controllers
 {
     public class CatalogController : Controller
     {
-        private readonly SunriseContext _context;
+        private IOrderManager _managerorder;
+        private ITourManager _managertour;
 
-        public CatalogController(SunriseContext context)
+
+        public CatalogController(IOrderManager manager1,ITourManager manager2)
         {
-            _context = context;
+            _managerorder = manager1;
+            _managertour = manager2;
+
+
         }
+
         public IActionResult Index()
         {
-            var Tours = _context.Tours;
-            ViewBag.Tours = Tours;
             
+            var toursname = _managertour;
+            toursname.GetAll();
+          
+            //_managertour.addname(toursname); // ошибка какая то
+            ViewBag.Tourforview = toursname;
             return View();
         }
+        [HttpGet]
+        public IActionResult Buy()
+        {
+            int id = 5;
+            ViewBag.TourId = id;
+            return View();
+        }
+
+
+        [HttpPost]
+        public string Buy(Order purch)
+        {
+            
+            _managerorder.add(purch);
+
+            
+            return "Спасибо," + purch.Date + ", за покупку ";
+        }
+
+     
 
         public IActionResult Privacy()
         {
