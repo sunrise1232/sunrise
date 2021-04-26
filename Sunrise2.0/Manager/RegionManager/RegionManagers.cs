@@ -17,14 +17,14 @@ namespace Sunrise2._0.Manager.RegionManager
         {
             _ContextRegion = context;
         }
-        public ICollection<Region> GetAll()
-        {
-            return _ContextRegion.Regions.ToList();
-        }
+
+        public ICollection<Region> GetAll() => (ICollection<Region>)_ContextRegion.Regions;
+
+      
 
         public ICollection<Region> Index()
         {
-            return _ContextRegion.Regions.ToList();
+            return (ICollection<Region>)_ContextRegion.Regions;
         }
     }
 }

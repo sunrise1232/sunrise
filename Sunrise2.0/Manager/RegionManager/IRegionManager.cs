@@ -6,7 +6,7 @@ using Sunrise2._0.Storage.Entity;
 
 namespace Sunrise2._0.Manager.RegionManager
 {
-    interface IRegionManager
+    public interface IRegionManager
     {
 
         public ICollection<Region> GetAll();

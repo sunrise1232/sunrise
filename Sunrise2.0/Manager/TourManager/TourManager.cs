@@ -24,12 +24,7 @@ namespace Sunrise2._0.Manager.TourManager
             _ContextTour = context;
         }
 
-        public Tour addname(Tour name)
-        {
-            name.Name= "Dagestan";
-            return name;
-           
-        }
+      
 
         public ICollection<Tour> GetAll() => _ContextTour.Tours.ToList();
 
@@ -37,10 +32,6 @@ namespace Sunrise2._0.Manager.TourManager
         {
             return _ContextTour.Tours.ToList();
         }
-
-        void ITourManager.addname(Tour tour)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }
