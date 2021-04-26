@@ -25,7 +25,7 @@ namespace Sunrise2._0.Data
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Town> Towns { get; set; }
-        public object Regions { get; internal set; }
+        public DbSet<Region> Regions { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

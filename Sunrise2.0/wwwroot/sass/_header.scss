@@ -52,7 +52,9 @@
     }
 }
 
-.nav__link a {
+.nav__link a, .nav__link button {
+    border: none;
+    background: none;
     display: block;
     padding: 20px 15px;
     font-size: 15px;

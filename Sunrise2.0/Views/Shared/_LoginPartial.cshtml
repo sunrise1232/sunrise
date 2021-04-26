@@ -8,14 +8,14 @@
     {
 
         <li class="nav__link">
-            <a href="#">
+            <a href="~/identity/Account/Manage">
                 @UserManager.GetUserName(User)
                 <i class="fas fa-user" style="margin-left: 5px;"></i>
             </a>
         </li>
         <li class="nav__link">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                <button id="logout" type="submit">Logout</button>
             </form>
         </li>
     }

@@ -286,16 +286,29 @@ body {
     }
 
     .nav__link a {
+        border: none;
+        background: none;
         display: block;
         padding: 20px 15px;
         font-size: 15px;
         text-transform: uppercase;
-        color: #282828;
+        color: $black;
         text-decoration: none;
-        transition: .1s linear all
+        transition: 0.1s linear all;
     }
 
-        .nav__link a:hover {
+    .nav__link button {
+        border: none;
+        background: none;
+        display: block;
+        padding: 20px 15px;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: $black;
+        text-decoration: none;
+        transition: 0.1s linear all;
+    }
+        .nav__link a:hover, .nav__link button:hover {
             color: #00aeef
         }
 
