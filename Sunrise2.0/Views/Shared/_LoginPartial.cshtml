@@ -15,7 +15,10 @@
         </li>
         <li class="nav__link">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button id="logout" type="submit">Logout</button>
+                <button id="logout" type="submit">
+                Выйти
+                <i style="margin-left: 5px;" class="fas fa-sign-out-alt"></i>
+                </button>
             </form>
         </li>
     }

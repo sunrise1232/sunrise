@@ -17,18 +17,20 @@ namespace Sunrise2._0.Storage.Entity
         public string Name { get; set; }
 
         [Required]
-        public int ServiceId { get; set; }
-        [ForeignKey(nameof(ServiceId))]
-        public Service Service { get; set; }
+        public string Description { get; set; }
 
         [Required]
-        public int HotelId { get; set; }
-        [ForeignKey(nameof(HotelId))]
-        public Hotel Hotel { get; set; }
+        public int Rating{ get; set; }
 
         [Required]
-        public int FlightId { get; set; }
-        [ForeignKey(nameof(FlightId))]
-        public Flight Flight { get; set; }
+        public int RegionId { get; set; }
+        [ForeignKey(nameof(RegionId))]
+        public Region Region { get; set; }
+
+        [Required]
+        public int TownId { get; set; }
+        [ForeignKey(nameof(TownId))]
+        public Town Town { get; set; }
+
     }
 }

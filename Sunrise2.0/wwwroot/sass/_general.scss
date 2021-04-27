@@ -27,7 +27,7 @@
     padding: 10px 20px;
     border: 2px solid $blue;
     border-radius: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: center;
     font-size: 15px;
     color: $black;
@@ -47,7 +47,7 @@
 }
 
 .form__label {
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
 }
 
@@ -68,6 +68,11 @@
     padding: 0 20px;
     font-size: 20px;
     color: $black;
+}
+
+.display-inline {
+    display: inline;
+    margin-right: 10px;
 }
 
 

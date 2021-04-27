@@ -1,0 +1,61 @@
+.manage-account {
+    padding: 70px 0 100px;
+}
+
+.manage-account__nav {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    margin-bottom: 50px;
+
+    .nav__link {
+        width: 100%;
+        border-right: 1px solid rgba(0,0,0,0.1);
+        transition: 0.1s linear all;
+
+        &:hover {
+            border-right: 1px solid $blue;
+        }
+    }
+}
+
+.account__form {
+    position: relative;
+    align-items: end;
+
+    .form__input {
+        min-width: 300px;
+    }
+    
+    .form__input:focus {
+        min-width: 300px;
+    }
+}
+
+.form-input__wrapper {
+    position: relative;
+}
+
+.email-verification {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    z-index: 21;
+    border: none;
+    background: none;
+    margin-bottom: 30px;
+    padding: 10px;
+
+    i {
+        font-size: 20px;
+        color: $blue;
+        transition: 0.1s linear all;
+  
+    }
+    &:hover {
+        i {
+            color: $green;
+        }
+    }
+}

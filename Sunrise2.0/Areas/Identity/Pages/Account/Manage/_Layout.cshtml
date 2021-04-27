@@ -9,18 +9,24 @@
     }
 }
 
-<div class="manage-account" style="padding: 80px 0;">
+<div class="service">
     <div class="container">
-        <h2>Manage your account</h2>
+        <div class="service__wrapper">
+            <h3 class="service__title">Аккаунт</h3>
+            <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
+        </div>
+    </div>
+</div>
 
+<div class="manage-account">
+    <div class="container">
         <div>
-            <h4>Change your account settings</h4>
-            <hr />
             <div class="row">
                 <div class="col-md-3">
                     <partial name="_ManageNav" />
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-1"></div>
+                <div class="col-md-8">
                     @RenderBody()
                 </div>
             </div>
