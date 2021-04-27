@@ -10,7 +10,7 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210421193430_InitialCreate")]
+    [Migration("20210427141537_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -244,7 +244,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Airline");
+                    b.ToTable("Airlines");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Flight", b =>
@@ -261,7 +261,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasIndex("AirlineId");
 
-                    b.ToTable("Flight");
+                    b.ToTable("Flights");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Hotel", b =>
@@ -307,6 +307,9 @@ namespace Sunrise2._0.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Meals")
                         .HasColumnType("bit");
 
@@ -325,6 +328,8 @@ namespace Sunrise2._0.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
+
+                    b.HasIndex("HotelId");
 
                     b.HasIndex("StaffId");
 
@@ -379,7 +384,7 @@ namespace Sunrise2._0.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Region");
+                    b.ToTable("Regions");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Service", b =>
@@ -457,26 +462,18 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FlightId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HotelId")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
-                    b.Property<int>("ServiceId")
+                    b.Property<int>("Rating")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FlightId");
-
-                    b.HasIndex("HotelId");
-
-                    b.HasIndex("ServiceId");
 
                     b.ToTable("Tours");
                 });
@@ -580,6 +577,12 @@ namespace Sunrise2._0.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Sunrise2._0.Storage.Entity.Hotel", "Hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Sunrise2._0.Storage.Entity.Staff", "Staff")
                         .WithMany()
                         .HasForeignKey("StaffId")
@@ -598,27 +601,6 @@ namespace Sunrise2._0.Migrations
                     b.HasOne("Sunrise2._0.Storage.Entity.Provider", "Provider")
                         .WithMany()
                         .HasForeignKey("ProviderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Tour", b =>
-                {
-                    b.HasOne("Sunrise2._0.Storage.Entity.Flight", "Flight")
-                        .WithMany()
-                        .HasForeignKey("FlightId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Sunrise2._0.Storage.Entity.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Sunrise2._0.Storage.Entity.Service", "Service")
-                        .WithMany()
-                        .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

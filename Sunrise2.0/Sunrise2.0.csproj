@@ -8,6 +8,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210421192938_First.cs" />
     <Compile Remove="Migrations\20210421192938_First.Designer.cs" />
+    <Compile Remove="Migrations\20210427132541_First.cs" />
+    <Compile Remove="Migrations\20210427132541_First.Designer.cs" />
+    <Compile Remove="Migrations\20210427132851_Second.cs" />
+    <Compile Remove="Migrations\20210427132851_Second.Designer.cs" />
+    <Compile Remove="Migrations\20210427133202_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210427133202_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210427133644_Second.cs" />
+    <Compile Remove="Migrations\20210427133644_Second.Designer.cs" />
+    <Compile Remove="Migrations\20210427134223_Second.cs" />
+    <Compile Remove="Migrations\20210427134223_Second.Designer.cs" />
+    <Compile Remove="Migrations\20210427141038_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210427141038_InitialCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

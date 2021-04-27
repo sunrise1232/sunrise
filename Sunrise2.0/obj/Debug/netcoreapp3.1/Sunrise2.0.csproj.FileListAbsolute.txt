@@ -603,3 +603,5 @@ C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Sunrise2.0.genruntimeconfig.cache
 C:\sunrise\Sunrise2.0\bin\Debug\netcoreapp3.1\package.json
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Sunrise2.0.csprojAssemblyReference.cache
 C:\sunrise\Sunrise2.0\bin\Debug\netcoreapp3.1\package-lock.json
+C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\bin\Debug\netcoreapp3.1\package-lock.json
+C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\bin\Debug\netcoreapp3.1\package.json

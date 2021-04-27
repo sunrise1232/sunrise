@@ -25,15 +25,10 @@ namespace Sunrise2._0.Storage.Entity
         [ForeignKey(nameof(ClientId))]
         public Client Client { get; set; }
 
-        [Required]
-        public int StaffId { get; set; }
-        [ForeignKey(nameof(StaffId))]
-        public Staff Staff { get; set; }
-
-        [Required]
-        public int HotelId { get; set; }
-        [ForeignKey(nameof(HotelId))]
-        public Hotel Hotel { get; set; }
+        //[Required]
+        //public int HotelId { get; set; }
+        //[ForeignKey(nameof(HotelId))]
+        //public Hotel Hotel { get; set; }
 
         public bool Wifi { get; set; }
 

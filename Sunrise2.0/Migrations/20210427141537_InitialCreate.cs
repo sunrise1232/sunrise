@@ -8,7 +8,7 @@ namespace Sunrise2._0.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Airline",
+                name: "Airlines",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -17,7 +17,7 @@ namespace Sunrise2._0.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Airline", x => x.Id);
+                    table.PrimaryKey("PK_Airlines", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -79,7 +79,7 @@ namespace Sunrise2._0.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Region",
+                name: "Regions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -88,7 +88,7 @@ namespace Sunrise2._0.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Region", x => x.Id);
+                    table.PrimaryKey("PK_Regions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -112,7 +112,22 @@ namespace Sunrise2._0.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Flight",
+                name: "Tours",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Rating = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tours", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Flights",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -121,11 +136,11 @@ namespace Sunrise2._0.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Flight", x => x.Id);
+                    table.PrimaryKey("PK_Flights", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Flight_Airline_AirlineId",
+                        name: "FK_Flights_Airlines_AirlineId",
                         column: x => x.AirlineId,
-                        principalTable: "Airline",
+                        principalTable: "Airlines",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -268,9 +283,9 @@ namespace Sunrise2._0.Migrations
                 {
                     table.PrimaryKey("PK_Towns", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Towns_Region_RegionId",
+                        name: "FK_Towns_Regions_RegionId",
                         column: x => x.RegionId,
-                        principalTable: "Region",
+                        principalTable: "Regions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -296,40 +311,6 @@ namespace Sunrise2._0.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tours",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    ServiceId = table.Column<int>(nullable: false),
-                    HotelId = table.Column<int>(nullable: false),
-                    FlightId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tours", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Tours_Flight_FlightId",
-                        column: x => x.FlightId,
-                        principalTable: "Flight",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Tours_Hotels_HotelId",
-                        column: x => x.HotelId,
-                        principalTable: "Hotels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Tours_Services_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Services",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -338,6 +319,7 @@ namespace Sunrise2._0.Migrations
                     TourId = table.Column<int>(nullable: false),
                     ClientId = table.Column<string>(nullable: false),
                     StaffId = table.Column<int>(nullable: false),
+                    HotelId = table.Column<int>(nullable: false),
                     Wifi = table.Column<bool>(nullable: false),
                     Adults = table.Column<int>(nullable: false),
                     Children = table.Column<int>(nullable: false),
@@ -352,6 +334,12 @@ namespace Sunrise2._0.Migrations
                         name: "FK_Orders_AspNetUsers_ClientId",
                         column: x => x.ClientId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -408,8 +396,8 @@ namespace Sunrise2._0.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Flight_AirlineId",
-                table: "Flight",
+                name: "IX_Flights_AirlineId",
+                table: "Flights",
                 column: "AirlineId");
 
             migrationBuilder.CreateIndex(
@@ -421,6 +409,11 @@ namespace Sunrise2._0.Migrations
                 name: "IX_Orders_ClientId",
                 table: "Orders",
                 column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_HotelId",
+                table: "Orders",
+                column: "HotelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_StaffId",
@@ -436,21 +429,6 @@ namespace Sunrise2._0.Migrations
                 name: "IX_Services_ProviderId",
                 table: "Services",
                 column: "ProviderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tours_FlightId",
-                table: "Tours",
-                column: "FlightId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tours_HotelId",
-                table: "Tours",
-                column: "HotelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tours_ServiceId",
-                table: "Tours",
-                column: "ServiceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Towns_RegionId",
@@ -476,13 +454,25 @@ namespace Sunrise2._0.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Flights");
+
+            migrationBuilder.DropTable(
                 name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Services");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Airlines");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Hotels");
 
             migrationBuilder.DropTable(
                 name: "Staffs");
@@ -491,25 +481,13 @@ namespace Sunrise2._0.Migrations
                 name: "Tours");
 
             migrationBuilder.DropTable(
-                name: "Flight");
-
-            migrationBuilder.DropTable(
-                name: "Hotels");
-
-            migrationBuilder.DropTable(
-                name: "Services");
-
-            migrationBuilder.DropTable(
-                name: "Airline");
+                name: "Providers");
 
             migrationBuilder.DropTable(
                 name: "Towns");
 
             migrationBuilder.DropTable(
-                name: "Providers");
-
-            migrationBuilder.DropTable(
-                name: "Region");
+                name: "Regions");
         }
     }
 }
