@@ -10,6 +10,7 @@ using Sunrise2._0.Manager;
 using Sunrise2._0.Storage.Entity;
 using Sunrise2._0.Manager.OrderManager;
 using Sunrise2._0.Manager.TourManager;
+using Sunrise2._0.Data;
 
 namespace Sunrise2._0.Controllers
 {
@@ -19,7 +20,7 @@ namespace Sunrise2._0.Controllers
         private ITourManager _managertour;
 
 
-        public CatalogController(IOrderManager manager1,ITourManager manager2)
+        public CatalogController(IOrderManager manager1, ITourManager manager2)
         {
             _managerorder = manager1;
             _managertour = manager2;
@@ -29,44 +30,56 @@ namespace Sunrise2._0.Controllers
 
         public IActionResult Index()
         {
-            
-            var toursname = _managertour;
+
+            /*var toursname = _managertour;
             toursname.GetAll();
-          
-            //_managertour.addname(toursname); // ошибка какая то
+
+            _managertour.addname(toursname); // ошибка какая то
             ViewBag.Tourforview = toursname;
-            return View();
+            return View();*/
+
+            var tours = _managertour.GetAll();
+            
+            return View(tours);
         }
+
+
         [HttpGet]
-        public IActionResult Buy()
+        public IActionResult Buy(int TourId)
         {
-            int id = 5;
-            ViewBag.TourId = id;
-            return View();
+
+            var tour = _managertour.GetAll().FirstOrDefault(t => t.Id == TourId);
+            
+
+            return View(tour);
+
         }
 
 
         [HttpPost]
         public string Buy(Order purch)
         {
-            
-            _managerorder.add(purch);
+            _managerorder.Add(purch);
 
-            
+
             return "Спасибо," + purch.Date + ", за покупку ";
         }
 
-     
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        /*SunriseContext _context;
+
+         public CatalogController(SunriseContext context)
+         {
+             _context = context;
+         }
+
+         public ActionResult Index()
+         {
+             ViewBag.Tours = _context.Tours;
+             ViewBag.Hotels = _context.Hotels;
+
+             return View();
+         }*/
     }
 }

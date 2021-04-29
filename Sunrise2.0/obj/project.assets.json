@@ -8813,19 +8813,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Соня\\.nuget\\packages\\": {}
+    "C:\\Users\\yaroslav\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Соня\\Desktop\\sunrise\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
+      "projectUniqueName": "C:\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
       "projectName": "Sunrise2.0",
-      "projectPath": "C:\\Users\\Соня\\Desktop\\sunrise\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
-      "packagesPath": "C:\\Users\\Соня\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Соня\\Desktop\\sunrise\\sunrise\\Sunrise2.0\\obj\\",
+      "projectPath": "C:\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
+      "packagesPath": "C:\\Users\\yaroslav\\.nuget\\packages\\",
+      "outputPath": "C:\\sunrise\\Sunrise2.0\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Соня\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yaroslav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

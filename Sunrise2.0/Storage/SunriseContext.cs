@@ -22,7 +22,6 @@ namespace Sunrise2._0.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Provider> Providers { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<Staff> Staffs { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Town> Towns { get; set; }
         public DbSet<Region> Regions { get; internal set; }

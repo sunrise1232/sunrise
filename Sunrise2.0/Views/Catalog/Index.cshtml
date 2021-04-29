@@ -1,4 +1,6 @@
-﻿
+﻿@using Sunrise2._0.Storage.Entity
+@model IEnumerable<Tour>
+
 @{
     ViewData["Title"] = "Туры";
 }
@@ -14,56 +16,47 @@
 
 <section class="catalog">
     <div class="container">
-        <aside class="catalog__aside">
-        </aside>
+        <div style="margin-bottom: 30px">
+            <select style="margin-right: 30px;">
+                <option>region</option>
+                <option>region</option>
+                <option>region</option>
+            </select>
+            <select>
+                <option>town</option>
+                <option>town</option>
+                <option>town</option>
+            </select>
+            <button>подобрать</button>
+        </div>
+        <div style="margin-bottom: 30px">
+            поиск
+            <input type="text" />
+        </div>
 
         <div class="catalog__content">
             <div class="row">
 
-                <div class="col-md-6">
-                    <a href="#" class="catalog-item">
-                        <div class="catalog-item__img">
-                            <img src="img/slider/slide1.jpg" alt="">
-                        </div>
-                        <div class="catalog-item__content">
-                            <div class="catalog-item__title">name name name name</div>
-                            <div class="catalog-item__city">moscow, studencheskaya</div>
-                            <div class="catalog-item__price">
-                                100 000 <span class="price__currency">BTC</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
 
-                <div class="col-md-6">
-                    <a href="#" class="catalog-item">
-                        <div class="catalog-item__img">
-                            <img src="img/promo/hill.png" alt="">
-                        </div>
-                        <div class="catalog-item__content">
-                            <div class="catalog-item__title">name name name name</div>
-                            <div class="catalog-item__city">moscow, studencheskaya</div>
-                            <div class="catalog-item__price">
-                                100 000 <span class="price__currency">BTC</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
 
-                <div class="col-md-6">
-                    <a href="#" class="catalog-item">
-                        <div class="catalog-item__img">
-                            <img src="img/slider/slide1.jpg" alt="">
-                        </div>
-                        <div class="catalog-item__content">
-                            <div class="catalog-item__title">name name name name</div>
-                            <div class="catalog-item__city">moscow, studencheskaya</div>
-                            <div class="catalog-item__price">
-                                100 000 <span class="price__currency">BTC</span>
+                @foreach (var t in Model)
+                {
+                    <div class="col-md-6">
+                        <a href="~/Catalog/Buy?TourId=@t.Id" class="catalog-item">
+                            <div class="catalog-item__img">
+                                <img src="img/slider/slide1.jpg" alt="">
                             </div>
-                        </div>
-                    </a>
-                </div>
+                            <div class="catalog-item__content">
+                                <div class="catalog-item__title">@t.Hotel.Name</div>
+                                <div class="catalog-item__city">@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name</div>
+                                <div class="catalog-item__price">
+                                    @t.Price
+                                    <span class="price__currency">РУБ</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
 
             </div>
         </div>
@@ -72,52 +65,3 @@
 
 
 
-
-<div id="tour" class="modal">
-    <div class="modal__dialog modal__dialog_catalog">
-
-        <div class="tour">
-            <div class="tour__right">
-                <div class="modalCarousel tour__carousel">
-                    <div class="carousel__item"><img src="img/promo/hill.png" alt="img"></div>
-                    <div class="carousel__item"><img src="img/slider/slide1.jpg" alt="img"></div>
-                    <div class="carousel__item"><img src="img/slider/slide1.jpg" alt="img"></div>
-                </div>
-                <div class="tour__title">name name name</div>
-                <div class="tour__descr">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</div>
-                <div class="tour__rating">
-                    10
-                    <i class="far fa-heart"></i>
-                </div>
-
-            </div>
-            <div class="tour__left">
-                <div>
-                    количество человек
-                    <input type="range">
-                </div>
-                <div>
-                    количество ночей
-                    <input type="range">
-                </div>
-                <div>
-                    дата вылета
-                    <input type="date">
-                </div>
-                <div>
-                    wi-fi
-                    <input type="checkbox">
-                </div>
-                <div>
-                    meals
-                    <input type="checkbox">
-                </div>
-                <div class="tour__price">999 999 <span>USD</span></div>
-                <button class="button tour__button">Продолжить</button>
-            </div>
-        </div>
-
-        <i class="fas fa-times modal__close"></i>
-
-    </div>
-</div>

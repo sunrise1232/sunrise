@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Sunrise2._0.Data;
 using Sunrise2._0.Storage;
 using Sunrise2._0.Storage.Entity;
@@ -26,12 +27,13 @@ namespace Sunrise2._0.Manager.TourManager
 
       
 
-        public ICollection<Tour> GetAll() => _ContextTour.Tours.ToList();
+        //public ICollection<Tour> GetAll() => _ContextTour.Tours.ToList();
 
-        public ICollection<Tour> Index11()
+        public ICollection<Tour> GetAll()
         {
-            return _ContextTour.Tours.ToList();
+            return  _ContextTour.Tours.Include(t => t.Hotel.Town.Region).ToList();
         }
-     
+
+
     }
 }

@@ -8,10 +8,14 @@ namespace Sunrise2._0.Manager.TourManager
 {
     public interface ITourManager
     {
+
+
         public ICollection<Tour> GetAll();
 
-        public ICollection<Tour> Index11();
-   
+
+
 
     }
+
+
 }

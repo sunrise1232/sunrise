@@ -9,9 +9,8 @@ namespace Sunrise2._0.Manager.OrderManager
     public interface IOrderManager
     {
 
-        public void add(Order purch);
+        public void Add(Order purch);
         public ICollection<Order> GetAll();
 
-        public ICollection<Order> Index();
     }
 }

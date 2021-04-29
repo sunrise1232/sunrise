@@ -1,0 +1,68 @@
+﻿@using Sunrise2._0.Storage.Entity
+@model Tour
+
+@{
+    ViewData["Title"] = Model.Hotel.Name;
+}
+
+<div class="tour">
+    <div class="container">
+        <div class="tour__dialog">
+            <div class="tour__right">
+                <div class="modalCarousel tour__carousel">
+                    <div class="carousel__item"><img src="~/img/promo/hill.png" alt="img"></div>
+                    <div class="carousel__item"><img src="~/img/slider/slide1.jpg" alt="img"></div>
+                    <div class="carousel__item"><img src="~/img/slider/slide1.jpg" alt="img"></div>
+                </div>
+                <div class="tour__title">@Model.Hotel.Name</div>
+                <div class="tour__city">@Model.Hotel.Town.Region.Name, @Model.Hotel.Town.Name</div>
+                <div class="tour__descr">@Model.Description</div>
+                <div class="tour__rating">@Model.Rating <i class="far fa-heart"></i></div>
+
+            </div>
+
+
+            <div class="tour__left">
+
+                <form method="post">
+
+                    <div class="tour__option">
+                        <label>День:</label>
+                        <input type="datetime" name="Date" value="1" />
+                    </div>
+
+                    <div class="tour__option">
+                        <label>Взрослых:</label>
+                        <input type="number" name="Adults" value="1" />
+                    </div>
+
+                    <div class="tour__option">
+                        <label>Детей:</label>
+                        <input type="number" name="Adults" value="0" />
+                    </div>
+
+                    <div class="tour__option">
+                        <label>Ночей:</label>
+                        <input type="number" name="Nights" value="1" />
+                    </div>
+
+                    <div class="tour__option">
+                        <label>Питание:</label>
+                        <input type="checkbox" name="Meals" value="1" />
+                    </div>
+
+                    <div class="tour__option">
+                        <label>Wi-fi:</label>
+                        <input type="checkbox" name="Wifi" value="1" />
+                    </div>
+
+                    <div class="tour__price">@Model.Price <span>РУБ</span></div>
+
+                    <button type="submit" class="button tour__button">Заказать</button>
+                </form>
+
+            </div>
+        <i class="fas fa-times modal__close"></i>
+    </div>
+     </div>
+</div>

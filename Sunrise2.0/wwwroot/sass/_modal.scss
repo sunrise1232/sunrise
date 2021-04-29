@@ -35,26 +35,5 @@
 
 }
 
-.modal__dialog_catalog {
-    position: relative;
-    margin: 0 50px;
-    width: 100%;
-    max-width: 1000px;
-    min-height: 600px;
-    background: url(../img/service-bg1.png);
-
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: block;
-        width: 50%;
-        height: 100%;
-        z-index: 19;
-        background-color: #fff;
-        
-    }
-}
 
 

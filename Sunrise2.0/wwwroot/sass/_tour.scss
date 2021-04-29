@@ -1,0 +1,103 @@
+.tour {
+    padding: 70px 0;
+}
+.tour__dialog {
+    position: relative;
+    margin: 0 50px;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background: url(../img/service-bg1.png);
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 50%;
+        height: 100%;
+        z-index: 19;
+        background-color: #fff;
+        
+    }
+}
+
+
+
+.tour__right {
+    position: relative;
+    width: 50%;
+    padding-right: 20px;
+}
+
+.tour__carousel {
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.tour__title {
+    font-size: 30px;
+}
+
+.tour__descr {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.tour__city {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.tour__rating {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    z-index: 21;
+    color: $blue;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    i {
+        margin-left: 6px;
+        transition: 0.1s linear all;
+    } 
+    
+    &:hover {
+        i {
+            transform: scale(1.11);
+        }
+    }
+}
+
+.tour__left {
+    position: relative;
+    z-index: 20;
+    padding-left: 20px;
+    width: 50%;
+}
+
+.tour__price {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    z-index: 21;
+    font-size: 35px;
+    
+    span {
+        font-size: 20px;
+        opacity: 0.8;
+    }
+}

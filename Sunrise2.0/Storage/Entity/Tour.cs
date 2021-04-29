@@ -17,9 +17,14 @@ namespace Sunrise2._0.Storage.Entity
         //[MaxLength(50)]
         //public string Name { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
+        [Required]
         public int Rating{ get; set; }
+
+        [Required]
+        public decimal Price { get; set; }
 
         [Required]
         public int HotelId { get; set; }
