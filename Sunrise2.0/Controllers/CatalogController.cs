@@ -43,6 +43,18 @@ namespace Sunrise2._0.Controllers
             return View(tours);
         }
 
+ 
+
+        [HttpPost]
+        public IActionResult Search(string Name)
+        {
+
+            var tour = _managertour.SearchManager(Name);
+
+            return View(tour);
+        }
+
+
 
         [HttpGet]
         public IActionResult Buy(int TourId)
@@ -66,6 +78,33 @@ namespace Sunrise2._0.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult RaitingSortUp()
+        {
+            var tour = _managertour.GetAll().OrderBy(t => t.Rating);
+            return View(tour);
+        }
+
+        [HttpPost]
+        public IActionResult RaitingSortDown()
+        {
+            var tour = _managertour.GetAll().OrderByDescending(t => t.Rating);
+            return View(tour);
+        }
+
+        [HttpPost]
+        public IActionResult PriseSortDown()
+        {
+            var tour = _managertour.GetAll().OrderByDescending(t => t.Price);
+            return View(tour);
+        }
+
+        [HttpPost]
+        public IActionResult PriseSortUp()
+        {
+            var tour = _managertour.GetAll().OrderBy(t => t.Price);
+            return View(tour);
+        }
 
         /*SunriseContext _context;
 

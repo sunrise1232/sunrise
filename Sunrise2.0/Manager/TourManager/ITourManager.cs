@@ -11,7 +11,7 @@ namespace Sunrise2._0.Manager.TourManager
 
 
         public ICollection<Tour> GetAll();
-
+        public ICollection<Tour> SearchManager(string Name);
 
 
 

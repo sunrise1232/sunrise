@@ -2,7 +2,7 @@
 @model IEnumerable<Tour>
 
 @{
-    ViewData["Title"] = "Туры9";
+    ViewData["Title"] = "Туры";
 }
 
 
@@ -29,22 +29,6 @@
             </select>
             <button>подобрать</button>
         </div>
-        <form method="post" action="~/Catalog/RaitingSortUp">
-
-            <input type="submit" value="Рейтинг по Возрастанию" />
-        </form>
-        <form method="post" action="~/Catalog/RaitingSortDown">
-
-            <input type="submit" value="Рейтинг по Убыванию" />
-        </form>
-        <form method="post" action="~/Catalog/PriseSortUp">
-
-            <input type="submit" value="Цена по Возрастанию" />
-        </form>
-        <form method="post" action="~/Catalog/PriseSortDown">
-
-            <input type="submit" value="Цена по Убыванию" />
-        </form>
         <form method="post" action="~/Catalog/Search">
             <input type="text" name="Name" /><br />
             <input type="submit" value="Отправить" />
@@ -60,7 +44,7 @@
                     <div class="col-md-6">
                         <a href="~/Catalog/Buy?TourId=@t.Id" class="catalog-item">
                             <div class="catalog-item__img">
-                                <img src="img/slider/slide1.jpg" alt="">
+                                <img src="~/img/slider/slide1.jpg" alt="">
                             </div>
                             <div class="catalog-item__content">
                                 <div class="catalog-item__title">@t.Hotel.Name</div>

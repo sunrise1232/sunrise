@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210429202922_Second")]
-    partial class Second
+    [Migration("20210429205408_ddodd")]
+    partial class ddodd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -401,8 +401,8 @@ namespace Sunrise2._0.Migrations
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");

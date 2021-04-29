@@ -8813,19 +8813,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Соня\\.nuget\\packages\\": {}
+    "C:\\Users\\Николай\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Соня\\Desktop\\sunrise\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
+      "projectUniqueName": "D:\\3333\\SUNR1SE\\Sunrise2.0\\Sunrise2.0.csproj",
       "projectName": "Sunrise2.0",
-      "projectPath": "C:\\Users\\Соня\\Desktop\\sunrise\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
-      "packagesPath": "C:\\Users\\Соня\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Соня\\Desktop\\sunrise\\sunrise\\Sunrise2.0\\obj\\",
+      "projectPath": "D:\\3333\\SUNR1SE\\Sunrise2.0\\Sunrise2.0.csproj",
+      "packagesPath": "C:\\Users\\Николай\\.nuget\\packages\\",
+      "outputPath": "D:\\3333\\SUNR1SE\\Sunrise2.0\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Соня\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Николай\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8900,7 +8900,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

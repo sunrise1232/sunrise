@@ -35,5 +35,11 @@ namespace Sunrise2._0.Manager.TourManager
         }
 
 
+        public ICollection<Tour> SearchManager(string Name)
+        {
+            return _ContextTour.Tours.Include(t => t.Hotel.Town.Region).Where(t => t.Hotel.Town.Name == Name).ToList();
+        }
+
+
     }
 }

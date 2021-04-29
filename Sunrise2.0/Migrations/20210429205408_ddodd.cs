@@ -2,7 +2,7 @@
 
 namespace Sunrise2._0.Migrations
 {
-    public partial class Second : Migration
+    public partial class ddodd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

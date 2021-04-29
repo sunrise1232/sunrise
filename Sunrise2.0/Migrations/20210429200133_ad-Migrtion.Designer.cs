@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210429200330_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210429200133_ad-Migrtion")]
+    partial class adMigrtion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -304,6 +304,7 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
+                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Meals")
@@ -407,8 +408,8 @@ namespace Sunrise2._0.Migrations
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
