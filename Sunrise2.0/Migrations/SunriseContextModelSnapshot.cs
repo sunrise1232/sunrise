@@ -297,12 +297,7 @@ namespace Sunrise2._0.Migrations
                     b.Property<int>("Children")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Meals")
@@ -318,8 +313,6 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
 
                     b.HasIndex("TourId");
 
@@ -406,8 +399,8 @@ namespace Sunrise2._0.Migrations
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -512,12 +505,6 @@ namespace Sunrise2._0.Migrations
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Order", b =>
                 {
-                    b.HasOne("Sunrise2._0.Areas.Identity.Data.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Sunrise2._0.Storage.Entity.Tour", "Tour")
                         .WithMany()
                         .HasForeignKey("TourId")

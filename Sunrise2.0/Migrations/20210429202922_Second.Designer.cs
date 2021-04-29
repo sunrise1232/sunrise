@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210428170846_intial")]
-    partial class intial
+    [Migration("20210429202922_Second")]
+    partial class Second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -299,12 +299,7 @@ namespace Sunrise2._0.Migrations
                     b.Property<int>("Children")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Meals")
@@ -320,8 +315,6 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
 
                     b.HasIndex("TourId");
 
@@ -402,9 +395,13 @@ namespace Sunrise2._0.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<int>("Rating")
@@ -510,12 +507,6 @@ namespace Sunrise2._0.Migrations
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Order", b =>
                 {
-                    b.HasOne("Sunrise2._0.Areas.Identity.Data.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Sunrise2._0.Storage.Entity.Tour", "Tour")
                         .WithMany()
                         .HasForeignKey("TourId")

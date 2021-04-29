@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Sunrise2._0.Migrations
 {
-    public partial class intial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -281,8 +281,9 @@ namespace Sunrise2._0.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
+                    Price = table.Column<int>(nullable: false),
                     HotelId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

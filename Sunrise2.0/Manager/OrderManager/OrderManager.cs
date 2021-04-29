@@ -27,9 +27,9 @@ namespace Sunrise2._0.Manager.OrderManager
             IdentityUser User = new IdentityUser();
 
 
-            purch.ClientId = "1";
+            //purch.ClientId = "5386dae7-129f-4293-a519-dd296533dabf";
             purch.Date = DateTime.Now;
-            purch.TourId = 1;
+            purch.TourId = 7;
             _ContextOrder.Orders.Add(purch);
             _ContextOrder.SaveChanges();
         }
