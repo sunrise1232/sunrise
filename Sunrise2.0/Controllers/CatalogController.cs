@@ -11,6 +11,9 @@ using Sunrise2._0.Storage.Entity;
 using Sunrise2._0.Manager.OrderManager;
 using Sunrise2._0.Manager.TourManager;
 using Sunrise2._0.Data;
+using Microsoft.AspNetCore.Identity;
+using Sunrise2._0.Areas.Identity.Data;
+using System.Security.Claims;
 
 namespace Sunrise2._0.Controllers
 {
@@ -18,6 +21,7 @@ namespace Sunrise2._0.Controllers
     {
         private IOrderManager _managerorder;
         private ITourManager _managertour;
+        private readonly UserManager<Client> _managerUser;
 
 
         public CatalogController(IOrderManager manager1, ITourManager manager2)
@@ -30,13 +34,6 @@ namespace Sunrise2._0.Controllers
 
         public IActionResult Index()
         {
-
-            /*var toursname = _managertour;
-            toursname.GetAll();
-
-            _managertour.addname(toursname); // ошибка какая то
-            ViewBag.Tourforview = toursname;
-            return View();*/
 
             var tours = _managertour.GetAll();
             
@@ -71,6 +68,8 @@ namespace Sunrise2._0.Controllers
         [HttpPost]
         public string Buy(Order purch)
         {
+            ClaimsPrincipal currentUser = this.User;
+            purch.ClientId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
             _managerorder.Add(purch);
 
 

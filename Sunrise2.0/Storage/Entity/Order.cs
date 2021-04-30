@@ -20,15 +20,11 @@ namespace Sunrise2._0.Storage.Entity
         [ForeignKey(nameof(TourId))]
         public Tour Tour { get; set; }
 
-       // [Required]
-      //  public string ClientId { get; set; }
-     //   [ForeignKey(nameof(ClientId))]
-      //  public Client Client { get; set; }
+        [Required]
+        public string ClientId { get; set; }
+        [ForeignKey(nameof(ClientId))]
+        public Client Client { get; set; }
 
-        //[Required]
-        //public int HotelId { get; set; }
-        //[ForeignKey(nameof(HotelId))]
-        //public Hotel Hotel { get; set; }
 
         public bool Wifi { get; set; }
 

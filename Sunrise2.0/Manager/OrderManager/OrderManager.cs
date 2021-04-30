@@ -23,13 +23,7 @@ namespace Sunrise2._0.Manager.OrderManager
 
         public void Add(Order purch)
         {
-            //var date1 = new DateTime(2020, 3, 3);
-            IdentityUser User = new IdentityUser();
-
-
-            //purch.ClientId = "1";
             purch.Date = DateTime.Now;
-            //purch.TourId = 1;
             _ContextOrder.Orders.Add(purch);
             _ContextOrder.SaveChanges();
         }

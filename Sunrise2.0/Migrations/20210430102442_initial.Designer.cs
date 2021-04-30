@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210429200133_ad-Migrtion")]
-    partial class adMigrtion
+    [Migration("20210430102442_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -304,7 +304,6 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Meals")

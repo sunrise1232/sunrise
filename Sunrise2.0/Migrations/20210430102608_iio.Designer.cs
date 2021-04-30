@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210429205408_ddodd")]
-    partial class ddodd
+    [Migration("20210430102608_iio")]
+    partial class iio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -299,6 +299,10 @@ namespace Sunrise2._0.Migrations
                     b.Property<int>("Children")
                         .HasColumnType("int");
 
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -315,6 +319,8 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
 
                     b.HasIndex("TourId");
 
@@ -507,6 +513,12 @@ namespace Sunrise2._0.Migrations
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Order", b =>
                 {
+                    b.HasOne("Sunrise2._0.Areas.Identity.Data.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Sunrise2._0.Storage.Entity.Tour", "Tour")
                         .WithMany()
                         .HasForeignKey("TourId")

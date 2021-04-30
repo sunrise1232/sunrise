@@ -18,7 +18,7 @@
                 <div class="tour__city">@Model.Hotel.Town.Region.Name, @Model.Hotel.Town.Name</div>
                 <div class="tour__descr">@Model.Description</div>
                 <div class="tour__rating">@Model.Rating <i class="far fa-heart"></i></div>
-
+                
             </div>
 
 
@@ -55,6 +55,8 @@
                         <label>Wi-fi:</label>
                         <input type="checkbox" name="Wifi" value="1" />
                     </div>
+
+                    <input type="hidden" name="TourId" value="@Model.Id"/>
 
                     <div class="tour__price">@Model.Price <span>РУБ</span></div>
 

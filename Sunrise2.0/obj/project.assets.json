@@ -8813,19 +8813,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Николай\\.nuget\\packages\\": {}
+    "C:\\Users\\yaroslav\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\3333\\SUNR1SE\\Sunrise2.0\\Sunrise2.0.csproj",
+      "projectUniqueName": "C:\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
       "projectName": "Sunrise2.0",
-      "projectPath": "D:\\3333\\SUNR1SE\\Sunrise2.0\\Sunrise2.0.csproj",
-      "packagesPath": "C:\\Users\\Николай\\.nuget\\packages\\",
-      "outputPath": "D:\\3333\\SUNR1SE\\Sunrise2.0\\obj\\",
+      "projectPath": "C:\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
+      "packagesPath": "C:\\Users\\yaroslav\\.nuget\\packages\\",
+      "outputPath": "C:\\sunrise\\Sunrise2.0\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Николай\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yaroslav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8900,7 +8905,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

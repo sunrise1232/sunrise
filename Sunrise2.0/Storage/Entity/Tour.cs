@@ -24,7 +24,7 @@ namespace Sunrise2._0.Storage.Entity
         public int Rating{ get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
         [Required]
         public int HotelId { get; set; }
