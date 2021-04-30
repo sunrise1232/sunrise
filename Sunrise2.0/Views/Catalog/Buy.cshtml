@@ -28,7 +28,7 @@
 
                     <div class="tour__option">
                         <label>День:</label>
-                        <input type="datetime" name="Date" value="1" />
+                        <input type="date" min="@DateTime.Now" name="DateDep" value="" />
                     </div>
 
                     <div class="tour__option">
@@ -55,6 +55,13 @@
                         <label>Wi-fi:</label>
                         <input type="checkbox" name="Wifi" value="1" />
                     </div>
+
+                    <select name="AirlineId">
+                        @foreach(var i in ViewBag.Airlines)
+                        {
+                            <option value="@i.Id">@i.Name</option>;
+                        }
+                    </select>
 
                     <input type="hidden" name="TourId" value="@Model.Id"/>
 

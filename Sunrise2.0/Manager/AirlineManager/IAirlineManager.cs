@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Sunrise2._0.Storage.Entity;
 
-namespace Sunrise2._0.Manager.ServicesManager
+namespace Sunrise2._0.Manager.AirlineManger
 {
-    public interface IServicesManager
+    public interface IAirlineManager
     {
-        public ICollection<Service> GetAll();
+
+        public ICollection<Airline> GetAll();
+
     }
 }

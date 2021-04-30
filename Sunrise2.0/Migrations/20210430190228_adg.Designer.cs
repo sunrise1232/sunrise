@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210430102733_jhgg")]
-    partial class jhgg
+    [Migration("20210430190228_adg")]
+    partial class adg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -247,23 +247,6 @@ namespace Sunrise2._0.Migrations
                     b.ToTable("Airlines");
                 });
 
-            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Flight", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AirlineId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AirlineId");
-
-                    b.ToTable("Flights");
-                });
-
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Hotel", b =>
                 {
                     b.Property<int>("Id")
@@ -296,6 +279,9 @@ namespace Sunrise2._0.Migrations
                     b.Property<int>("Adults")
                         .HasColumnType("int");
 
+                    b.Property<int>("AirlineId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Children")
                         .HasColumnType("int");
 
@@ -304,6 +290,9 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateDep")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Meals")
@@ -319,6 +308,8 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AirlineId");
 
                     b.HasIndex("ClientId");
 
@@ -493,15 +484,6 @@ namespace Sunrise2._0.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Flight", b =>
-                {
-                    b.HasOne("Sunrise2._0.Storage.Entity.Airline", "Airline")
-                        .WithMany()
-                        .HasForeignKey("AirlineId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Hotel", b =>
                 {
                     b.HasOne("Sunrise2._0.Storage.Entity.Town", "Town")
@@ -513,6 +495,12 @@ namespace Sunrise2._0.Migrations
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Order", b =>
                 {
+                    b.HasOne("Sunrise2._0.Storage.Entity.Airline", "Airline")
+                        .WithMany()
+                        .HasForeignKey("AirlineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Sunrise2._0.Areas.Identity.Data.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId")

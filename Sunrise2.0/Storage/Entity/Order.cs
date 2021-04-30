@@ -26,6 +26,16 @@ namespace Sunrise2._0.Storage.Entity
         public Client Client { get; set; }
 
 
+
+        public int AirlineId { get; set; }
+        [ForeignKey(nameof(AirlineId))]
+        public Airline Airline{ get; set; }
+
+        public DateTime DateDep { get; set; }
+
+
+
+
         public bool Wifi { get; set; }
 
         [Required]
@@ -39,6 +49,7 @@ namespace Sunrise2._0.Storage.Entity
 
         [Required]
         public bool Meals { get; set; }
+
 
         [Required]
    

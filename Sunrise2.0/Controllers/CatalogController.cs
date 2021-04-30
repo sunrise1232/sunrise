@@ -14,6 +14,7 @@ using Sunrise2._0.Data;
 using Microsoft.AspNetCore.Identity;
 using Sunrise2._0.Areas.Identity.Data;
 using System.Security.Claims;
+using Sunrise2._0.Manager.AirlineManger;
 
 namespace Sunrise2._0.Controllers
 {
@@ -21,13 +22,15 @@ namespace Sunrise2._0.Controllers
     {
         private IOrderManager _managerorder;
         private ITourManager _managertour;
+        private IAirlineManager _managerAirline;
         private readonly UserManager<Client> _managerUser;
 
 
-        public CatalogController(IOrderManager manager1, ITourManager manager2)
+        public CatalogController(IOrderManager manager1, ITourManager manager2, IAirlineManager manager3)
         {
             _managerorder = manager1;
             _managertour = manager2;
+            _managerAirline = manager3;
 
 
         }
@@ -58,6 +61,7 @@ namespace Sunrise2._0.Controllers
         {
 
             var tour = _managertour.GetAll().FirstOrDefault(t => t.Id == TourId);
+            ViewBag.Airlines = _managerAirline.GetAll();
             
 
             return View(tour);
@@ -70,10 +74,13 @@ namespace Sunrise2._0.Controllers
         {
             ClaimsPrincipal currentUser = this.User;
             purch.ClientId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            purch.AirlineId = 1;
             _managerorder.Add(purch);
+             
 
 
-            return "Спасибо," + purch.Date + ", за покупку ";
+            return $"thanks, {User.Identity.Name}";
+            // return View(purch);
         }
 
 

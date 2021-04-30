@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Sunrise2._0.Migrations
 {
-    public partial class initial : Migration
+    public partial class adg : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -89,25 +89,6 @@ namespace Sunrise2._0.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Regions", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Flights",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AirlineId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Flights", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Flights_Airlines_AirlineId",
-                        column: x => x.AirlineId,
-                        principalTable: "Airlines",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -283,7 +264,7 @@ namespace Sunrise2._0.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
-                    Price = table.Column<decimal>(nullable: false),
+                    Price = table.Column<int>(nullable: false),
                     HotelId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -305,6 +286,8 @@ namespace Sunrise2._0.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TourId = table.Column<int>(nullable: false),
                     ClientId = table.Column<string>(nullable: false),
+                    AirlineId = table.Column<int>(nullable: false),
+                    DateDep = table.Column<DateTime>(nullable: false),
                     Wifi = table.Column<bool>(nullable: false),
                     Adults = table.Column<int>(nullable: false),
                     Children = table.Column<int>(nullable: false),
@@ -315,6 +298,12 @@ namespace Sunrise2._0.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Airlines_AirlineId",
+                        column: x => x.AirlineId,
+                        principalTable: "Airlines",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Orders_AspNetUsers_ClientId",
                         column: x => x.ClientId,
@@ -369,14 +358,14 @@ namespace Sunrise2._0.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Flights_AirlineId",
-                table: "Flights",
-                column: "AirlineId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Hotels_TownId",
                 table: "Hotels",
                 column: "TownId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_AirlineId",
+                table: "Orders",
+                column: "AirlineId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_ClientId",
@@ -420,9 +409,6 @@ namespace Sunrise2._0.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Flights");
 
             migrationBuilder.DropTable(
                 name: "Orders");
