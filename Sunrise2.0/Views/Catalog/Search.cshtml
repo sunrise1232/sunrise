@@ -2,7 +2,7 @@
 @model IEnumerable<Tour>
 
 @{
-    ViewData["Title"] = "Туры";
+    ViewData["Title"] = "Tours";
 }
 
 
@@ -16,23 +16,65 @@
 
 <section class="catalog">
     <div class="container">
-        <div style="margin-bottom: 30px">
-            <select style="margin-right: 30px;">
-                <option>region</option>
-                <option>region</option>
-                <option>region</option>
-            </select>
-            <select>
-                <option>town</option>
-                <option>town</option>
-                <option>town</option>
-            </select>
-            <button>подобрать</button>
-        </div>
-        <form method="post" action="~/Catalog/Search">
-            <input type="text" name="Name" /><br />
-            <input type="submit" value="Отправить" />
-        </form>
+
+
+        <header class="catalog__header">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="catalog__options">
+
+                        @if (ViewBag.Sort == 1)
+                        {
+                            <a class="catalog__option" href="~/Catalog/Index?Sort=2">
+                                По убыванию рейтинга
+                                <i class="fas fa-sort-amount-down"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="catalog__option" href="~/Catalog/Index?Sort=1">
+                                По возрастанию рейтинга
+                                <i class="fas fa-sort-amount-down-alt"></i>
+                            </a>
+                        }
+                        @if (ViewBag.Sort == 3)
+                        {
+                            <a class="catalog__option" href="~/Catalog/Index?Sort=4">
+                                По убыванию цены
+                                <i class="fas fa-sort-amount-down"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="catalog__option" href="~/Catalog/Index?Sort=3">
+                                По возрастанию цены
+                                <i class="fas fa-sort-amount-down-alt"></i>
+                            </a>
+                        }
+
+
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <form class="catalog__search" method="post" action="~/Catalog/Search">
+
+                        <input type="text" id="search" placeholder="search" name="Name" value="@ViewBag.Name"/>
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+
+
+
+
+
 
         <div class="catalog__content">
             <div class="row">

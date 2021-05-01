@@ -207,109 +207,105 @@
             <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
         </div>
     </div>
-
-
+    
+    
     <section class="catalog">
         <div class="container">
-            <aside class="catalog__aside">
-
-            </aside>
+    
+            <header class="catalog__header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="catalog__options">
+                            <a class="catalog__option" href="~/Catalog/Index?Sort=1">
+                                По возрастанию рейтинга
+                                <i class="fas fa-sort-amount-down-alt"></i>
+                            </a>
+                            <a class="catalog__option" href="~/Catalog/Index?Sort=2">
+                                По убыванию рейтинга
+                                <i class="fas fa-sort-amount-down"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+    
+                
+                    <div class="col-md-6">
+                        <form class="catalog__search" method="post" action="~/Catalog/Search">
+                            
+                            <input type="text" id="search" placeholder="search" name="Name" /><br />
+                            <label for="search">
+                                <i class="fas fa-search"></i>
+                            </label>
+                            <input type="submit" hidden value="Отправить"/>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            
+            
+            
+    
+    
     
             <div class="catalog__content">
                 <div class="row">
     
-                    <div class="col-md-6">
-                        <a href="#" class="catalog-item">
-                            <div class="catalog-item__img">
-                                <img src="img/slider/slide1.jpg" alt="">
-                            </div>
-                            <div class="catalog-item__content">
-                                <div class="catalog-item__title">name name name name</div>
-                                <div class="catalog-item__city">moscow, studencheskaya</div>
-                                <div class="catalog-item__price">
-                                    100 000 <span class="price__currency">BTC</span> 
+    
+    
+   
+                        <div class="col-md-6">
+                            <a href="~/Catalog/Buy?TourId=@t.Id" class="catalog-item">
+                                <div class="catalog-item__img">
+                                    <img src="~/img/slider/slide1.jpg" alt="">
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                                <div class="catalog-item__content">
+                                    <div class="catalog-item__title">@t.Hotel.Name</div>
+                                    <div class="catalog-item__city">@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name</div>
+                                    <div class="catalog-item__price">
+                                        @t.Price
+                                        <span class="price__currency">РУБ</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
 
-                    <div class="col-md-6">
-                        <a href="#" class="catalog-item">
-                            <div class="catalog-item__img">
-                                <img src="img/promo/hill.png" alt="">
-                            </div>
-                            <div class="catalog-item__content">
-                                <div class="catalog-item__title">name name name name</div>
-                                <div class="catalog-item__city">moscow, studencheskaya</div>
-                                <div class="catalog-item__price">
-                                    100 000 <span class="price__currency">BTC</span> 
+                        <div class="col-md-6">
+                            <a href="~/Catalog/Buy?TourId=@t.Id" class="catalog-item">
+                                <div class="catalog-item__img">
+                                    <img src="~/img/slider/slide1.jpg" alt="">
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                                <div class="catalog-item__content">
+                                    <div class="catalog-item__title">@t.Hotel.Name</div>
+                                    <div class="catalog-item__city">@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name</div>
+                                    <div class="catalog-item__price">
+                                        @t.Price
+                                        <span class="price__currency">РУБ</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
 
-                    <div class="col-md-6">
-                        <a href="#" class="catalog-item">
-                            <div class="catalog-item__img">
-                                <img src="img/slider/slide1.jpg" alt="">
-                            </div>
-                            <div class="catalog-item__content">
-                                <div class="catalog-item__title">name name name name</div>
-                                <div class="catalog-item__city">moscow, studencheskaya</div>
-                                <div class="catalog-item__price">
-                                    100 000 <span class="price__currency">BTC</span> 
+                        <div class="col-md-6">
+                            <a href="~/Catalog/Buy?TourId=@t.Id" class="catalog-item">
+                                <div class="catalog-item__img">
+                                    <img src="~/img/slider/slide1.jpg" alt="">
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                                <div class="catalog-item__content">
+                                    <div class="catalog-item__title">@t.Hotel.Name</div>
+                                    <div class="catalog-item__city">@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name</div>
+                                    <div class="catalog-item__price">
+                                        @t.Price
+                                        <span class="price__currency">РУБ</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    
     
                 </div>
             </div>
         </div>
     </section>
-
-
-
-    <div class="tour">
-        
-
-            <div class="container">
-                <div class="tour__dialog">
-                    <div class="tour__right">
-                        <div class="modalCarousel tour__carousel">
-                            <div class="carousel__item"><img src="img/promo/hill.png" alt="img"></div>
-                            <div class="carousel__item"><img src="img/slider/slide1.jpg" alt="img"></div>
-                            <div class="carousel__item"><img src="img/slider/slide1.jpg" alt="img"></div>
-                        </div>
-                        <div class="tour__title">name name name</div>
-                        <div class="tour__city"></div>
-                        <div class="tour__descr">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</div>
-                        <div class="tour__rating">
-                            10 
-                            <i class="far fa-heart"></i>
-                        </div>
-                        
-                    </div>
-                    <div class="tour__left">
-                        <form method="post">
-                            <label>Высота:</label><br />
-                            <input type="number" name="height" /><br />
-                            <label>Основание:</label><br />
-                            <input type="number" name="altitude" /><br />
-                            <input type="submit" value="Отправить" />
-                            <div class="tour__price">@Model.Price <span>РУБ</span></div>
-                            <button class="button tour__button">Заказать</button>
-                        </form>
-        
-                    </div>
-                    <i class="fas fa-times modal__close"></i>
-                </div>
-    
-                
-    
-            </div>
-       
-    </div>
 
 
     <!-- catalog------------------------------------------------------------------- -->

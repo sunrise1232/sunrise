@@ -35,10 +35,30 @@ namespace Sunrise2._0.Controllers
 
         }
 
-        public IActionResult Index()
+        
+        public IActionResult Index(int sort = 0)
         {
+            IEnumerable<Tour> tours;
 
-            var tours = _managertour.GetAll();
+            switch (sort)
+            {
+                case 1:
+                    tours = _managertour.GetAll().OrderBy(t => t.Rating);
+                    break;
+                case 2:
+                    tours = _managertour.GetAll().OrderByDescending(t => t.Rating);
+                    break;
+                case 3:
+                    tours = _managertour.GetAll().OrderBy(t => t.Price);
+                    break;
+                case 4:
+                    tours = _managertour.GetAll().OrderByDescending(t => t.Price);
+                    break;
+                default:
+                    tours = _managertour.GetAll();
+                    break;
+            }
+            ViewBag.Sort = sort;
             
             return View(tours);
         }
@@ -50,6 +70,7 @@ namespace Sunrise2._0.Controllers
         {
 
             var tour = _managertour.SearchManager(Name);
+            ViewBag.Name = Name;
 
             return View(tour);
         }
@@ -83,34 +104,6 @@ namespace Sunrise2._0.Controllers
             // return View(purch);
         }
 
-
-        [HttpPost]
-        public IActionResult RaitingSortUp()
-        {
-            var tour = _managertour.GetAll().OrderBy(t => t.Rating);
-            return View(tour);
-        }
-
-        [HttpPost]
-        public IActionResult RaitingSortDown()
-        {
-            var tour = _managertour.GetAll().OrderByDescending(t => t.Rating);
-            return View(tour);
-        }
-
-        [HttpPost]
-        public IActionResult PriseSortDown()
-        {
-            var tour = _managertour.GetAll().OrderByDescending(t => t.Price);
-            return View(tour);
-        }
-
-        [HttpPost]
-        public IActionResult PriseSortUp()
-        {
-            var tour = _managertour.GetAll().OrderBy(t => t.Price);
-            return View(tour);
-        }
 
         /*SunriseContext _context;
 

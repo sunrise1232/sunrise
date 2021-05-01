@@ -815,8 +815,4 @@ D:\3333\SUNR1SE\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\RaitingSo
 D:\3333\SUNR1SE\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\PriseSortDown.cshtml.g.cs
 D:\3333\SUNR1SE\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\PriseSortUp.cshtml.g.cs
 D:\3333\SUNR1SE\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\RaitingSortDown.cshtml.g.cs
-C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\PriseSortDown.cshtml.g.cs
-C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\PriseSortUp.cshtml.g.cs
-C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\RaitingSortDown.cshtml.g.cs
-C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\RaitingSortUp.cshtml.g.cs
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\Search.cshtml.g.cs
