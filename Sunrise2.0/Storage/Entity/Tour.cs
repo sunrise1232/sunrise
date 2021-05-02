@@ -30,5 +30,7 @@ namespace Sunrise2._0.Storage.Entity
         public int HotelId { get; set; }
         [ForeignKey(nameof(HotelId))]
         public Hotel Hotel { get; set; }
+
+        //public byte[] Image { get; set; }
     }
 }

@@ -816,3 +816,5 @@ D:\3333\SUNR1SE\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\PriseSort
 D:\3333\SUNR1SE\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\PriseSortUp.cshtml.g.cs
 D:\3333\SUNR1SE\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\RaitingSortDown.cshtml.g.cs
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\Search.cshtml.g.cs
+C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\Buy.cshtml.g.cs
+C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\Search.cshtml.g.cs

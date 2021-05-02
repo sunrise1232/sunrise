@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace Sunrise2._0.Storage.Entity
 {
-    public class Airline
+    public class Image
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        public string Name { get; set; }
+        public int TourId { get; set; }
+        [ForeignKey(nameof(TourId))]
+        public Tour Tour { get; set; }
 
-        public byte[] Image { get; set; }
+        public byte[] Data { get; set; }
     }
 }

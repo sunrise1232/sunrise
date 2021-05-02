@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210430190228_adg")]
-    partial class adg
+    [Migration("20210502185658_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -318,38 +318,6 @@ namespace Sunrise2._0.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Provider", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("ProviderName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Providers");
-                });
-
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Region", b =>
                 {
                     b.Property<int>("Id")
@@ -367,23 +335,6 @@ namespace Sunrise2._0.Migrations
                     b.ToTable("Regions");
                 });
 
-            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Service", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ProviderId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProviderId");
-
-                    b.ToTable("Services");
-                });
-
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Tour", b =>
                 {
                     b.Property<int>("Id")
@@ -397,6 +348,9 @@ namespace Sunrise2._0.Migrations
 
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -510,15 +464,6 @@ namespace Sunrise2._0.Migrations
                     b.HasOne("Sunrise2._0.Storage.Entity.Tour", "Tour")
                         .WithMany()
                         .HasForeignKey("TourId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Service", b =>
-                {
-                    b.HasOne("Sunrise2._0.Storage.Entity.Provider", "Provider")
-                        .WithMany()
-                        .HasForeignKey("ProviderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

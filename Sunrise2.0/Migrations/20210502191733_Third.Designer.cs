@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210430194957_ag")]
-    partial class ag
+    [Migration("20210502191733_Third")]
+    partial class Third
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -237,6 +237,9 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -267,6 +270,26 @@ namespace Sunrise2._0.Migrations
                     b.HasIndex("TownId");
 
                     b.ToTable("Hotels");
+                });
+
+            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("Data")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int>("TourId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TourId");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("Sunrise2._0.Storage.Entity.Order", b =>
@@ -440,6 +463,15 @@ namespace Sunrise2._0.Migrations
                     b.HasOne("Sunrise2._0.Storage.Entity.Town", "Town")
                         .WithMany()
                         .HasForeignKey("TownId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Sunrise2._0.Storage.Entity.Image", b =>
+                {
+                    b.HasOne("Sunrise2._0.Storage.Entity.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
