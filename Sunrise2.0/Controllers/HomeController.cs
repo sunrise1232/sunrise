@@ -36,17 +36,9 @@ namespace Sunrise2._0.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Tour> tours;
-            IEnumerable<Tour> tours1;
 
-
-
-            tours = _managertour.GetAll().OrderByDescending(t => t.Rating);
-
-           tours1 = tours.ToList().GetRange(0, 5);
-
-
-
+            var tours = _managertour.GetAll().OrderByDescending(t => t.Rating).ToList().GetRange(0, 2);
+            
 
             return View(tours);
         }

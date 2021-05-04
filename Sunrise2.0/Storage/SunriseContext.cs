@@ -24,7 +24,7 @@ namespace Sunrise2._0.Data
         public DbSet<Town> Towns { get; set; }
         public DbSet<Region> Regions { get; internal set; }
         public DbSet<Airline> Airlines { get; internal set; }
-        public DbSet<Image> Images { get; set; }
+        public DbSet<Image> Images { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

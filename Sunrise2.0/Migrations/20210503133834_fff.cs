@@ -3,14 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Sunrise2._0.Migrations
 {
-    public partial class Second : Migration
+    public partial class fff : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Image",
-                table: "Tours");
-
             migrationBuilder.AddColumn<byte[]>(
                 name: "Image",
                 table: "Airlines",
@@ -22,12 +18,6 @@ namespace Sunrise2._0.Migrations
             migrationBuilder.DropColumn(
                 name: "Image",
                 table: "Airlines");
-
-            migrationBuilder.AddColumn<byte[]>(
-                name: "Image",
-                table: "Tours",
-                type: "varbinary(max)",
-                nullable: true);
         }
     }
 }

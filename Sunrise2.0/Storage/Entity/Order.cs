@@ -54,5 +54,9 @@ namespace Sunrise2._0.Storage.Entity
         [Required]
    
         public DateTime Date { get; set; }
+
+
+        [Required]
+        public int Price { get; set; }
     }
 }

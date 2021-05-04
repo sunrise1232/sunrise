@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Sunrise2._0.Migrations
 {
-    public partial class Third : Migration
+    public partial class qqq : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

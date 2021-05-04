@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Sunrise2._0.Areas.Identity.Data;
 using System.Security.Claims;
 using Sunrise2._0.Manager.AirlineManger;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Sunrise2._0.Controllers
 {
@@ -35,7 +36,7 @@ namespace Sunrise2._0.Controllers
 
         }
 
-        
+
         public IActionResult Index(int sort = 0)
         {
             IEnumerable<Tour> tours;
@@ -59,11 +60,11 @@ namespace Sunrise2._0.Controllers
                     break;
             }
             ViewBag.Sort = sort;
-            
+
             return View(tours);
         }
 
- 
+
 
         [HttpPost]
         public IActionResult Search(string Name)
@@ -76,32 +77,37 @@ namespace Sunrise2._0.Controllers
         }
 
 
-
+        [Authorize]
         [HttpGet]
         public IActionResult Buy(int TourId)
         {
 
             var tour = _managertour.GetAll().FirstOrDefault(t => t.Id == TourId);
             ViewBag.Airlines = _managerAirline.GetAll();
-            
+
 
             return View(tour);
 
         }
 
+        public IActionResult BuyResult(int OrderId)
+        {
+            var order = _managerorder.GetAll().FirstOrDefault(t => t.Id == OrderId);
+
+            return View(order);
+        }
 
         [HttpPost]
-        public string Buy(Order purch)
+        public IActionResult Buy(Order purch)
         {
             ClaimsPrincipal currentUser = this.User;
             purch.ClientId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            purch.AirlineId = 1;
             _managerorder.Add(purch);
-             
 
 
-            return $"thanks, {User.Identity.Name}";
-            // return View(purch);
+
+            //return $"thanks, {User.Identity.Name}";
+            return RedirectToAction("BuyResult", "Catalog", new { OrderId = purch.Id });
         }
 
 

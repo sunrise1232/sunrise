@@ -1,0 +1,107 @@
+﻿@using Sunrise2._0.Storage.Entity
+@model Order
+
+@{
+    ViewData["Title"] = Model.Tour.Hotel.Name;
+}
+
+
+<div class="buy-result">
+    <div class="container">
+        <div class="buy-result__wrapper">
+            <h3 class="buy-result__title">Ваш тур:</h3>
+            <hr>
+            <ul class="buy-result__list">
+                <li>
+                    <span class="buy-result__key">Email:</span>
+                    <span class="buy-result__value">@Model.Client.Email</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Имя:</span>
+                    <span class="buy-result__value">@Model.Client.FirstName</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Фамилия:</span>
+                    <span class="buy-result__value">@Model.Client.LastName</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Отчество:</span>
+                    <span class="buy-result__value">@Model.Client.MiddleName</span>
+                </li>
+
+                <li>
+                    <span class="buy-result__key">Регион:</span>
+                    <span class="buy-result__value">@Model.Tour.Hotel.Town.Region.Name</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Город:</span>
+                    <span class="buy-result__value">@Model.Tour.Hotel.Town.Name</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Отель:</span>
+                    <span class="buy-result__value">@Model.Tour.Hotel.Name</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Авиакомпания:</span>
+                    <span class="buy-result__value">@Model.Airline.Name</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Дата вылета:</span>
+                    <span class="buy-result__value">@Model.DateDep</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Количество ночей:</span>
+                    <span class="buy-result__value">@Model.Nights</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Количество взрослых:</span>
+                    <span class="buy-result__value">@Model.Adults</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Количество детей:</span>
+                    <span class="buy-result__value">@Model.Children</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Wi-fi:</span>
+                    <span class="buy-result__value">
+                        @if (Model.Wifi == true)
+                        {
+                            <span>+</span>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Питание:</span>
+                    <span class="buy-result__value">
+                        @if (Model.Meals == true)
+                        {
+                            <span>+</span>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Дата заказа:</span>
+                    <span class="buy-result__value">@Model.Date</span>
+                </li>
+                <li>
+                    <span class="buy-result__key">Цена:</span>
+                    <span class="buy-result__value">000000</span>
+                </li>
+
+
+            </ul>
+
+
+
+
+        </div>
+    </div>
+</div>

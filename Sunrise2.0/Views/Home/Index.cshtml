@@ -1,4 +1,6 @@
-﻿
+﻿@using Sunrise2._0.Storage.Entity
+@model IEnumerable<Tour>
+
 @{
     ViewData["Title"] = "Sunrise";
 }
@@ -109,9 +111,12 @@
             <img class="carousel__item" src="img/slider/slide1.jpg" alt="">
             <img class="carousel__item" src="img/slider/slide1.jpg" alt="">
         </div>
-        a class="catalog__option" href="~/Home/Index">       
-        <i class="fas fa-sort-amount-down-alt"></i>
-        
+
+
+        @foreach(var i in Model)
+        {
+            @i.Hotel.Name 
+        }
 
     </div>
 </section>

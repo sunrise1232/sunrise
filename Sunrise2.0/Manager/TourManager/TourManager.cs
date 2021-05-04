@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,11 +33,6 @@ namespace Sunrise2._0.Manager.TourManager
         {
             return  _ContextTour.Tours.Include(t => t.Hotel.Town.Region).ToList();
         }
-
-       
-         
-           
-       
 
 
         public ICollection<Tour> SearchManager(string Name)
