@@ -243,6 +243,9 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<double>("PriceMultiplier")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.ToTable("Airlines");
@@ -320,6 +323,9 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("Nights")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<int>("TourId")

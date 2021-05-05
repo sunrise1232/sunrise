@@ -8819,11 +8819,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yaroslav\\Desktop\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
+      "projectUniqueName": "C:\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
       "projectName": "Sunrise2.0",
-      "projectPath": "C:\\Users\\yaroslav\\Desktop\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
+      "projectPath": "C:\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
       "packagesPath": "C:\\Users\\yaroslav\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yaroslav\\Desktop\\sunrise\\Sunrise2.0\\obj\\",
+      "outputPath": "C:\\sunrise\\Sunrise2.0\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

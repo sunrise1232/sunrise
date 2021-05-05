@@ -43,6 +43,16 @@ namespace Sunrise2._0.Controllers
             return View(tours);
         }
 
+        public IActionResult GetImage(int id)
+        {
+            var image = _managertour.GetImage(id);
+            if (image == null)
+            {
+                return NotFound();
+            }
+            return File(image.Data, "image/png");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

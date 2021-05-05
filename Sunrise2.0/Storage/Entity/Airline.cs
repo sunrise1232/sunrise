@@ -17,6 +17,9 @@ namespace Sunrise2._0.Storage.Entity
         [MaxLength(50)]
         public string Name { get; set; }
 
+        [Required]
+        public double PriceMultiplier { get; set; }
+
         public byte[] Image { get; set; }
     }
 }

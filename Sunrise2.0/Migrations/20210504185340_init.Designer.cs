@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210503164049_aa")]
-    partial class aa
+    [Migration("20210504185340_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -322,6 +322,9 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("Nights")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<int>("TourId")

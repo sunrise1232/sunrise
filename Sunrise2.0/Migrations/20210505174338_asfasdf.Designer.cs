@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210503134208_qqq")]
-    partial class qqq
+    [Migration("20210505174338_asfasdf")]
+    partial class asfasdf
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -245,6 +245,9 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<double>("PriceMultiplier")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.ToTable("Airlines");
@@ -322,6 +325,9 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("Nights")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<int>("TourId")

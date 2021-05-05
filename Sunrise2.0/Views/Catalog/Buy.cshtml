@@ -19,6 +19,7 @@
                 <div class="tour__descr">@Model.Description</div>
                 <div class="tour__rating">@Model.Rating <i class="far fa-heart"></i></div>
                 
+                
             </div>
 
 
@@ -27,9 +28,14 @@
                 <form method="post">
 
                     <div class="tour__option">
-                        <label>День:</label>                        
+                        <label>День:</label>
                         <input required type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="DateDep" value="" />
 
+                    </div>
+
+                    <div class="tour__option">
+                        <label>Ночей:</label>
+                        <input type="number" min="1" max="30" name="Nights" value="1" />
                     </div>
 
                     <div class="tour__option">
@@ -39,37 +45,55 @@
 
                     <div class="tour__option">
                         <label>Детей:</label>
-                        <input type="number"  min="0" max="30" name="Children" value="0" />
+                        <input type="number" min="0" max="30" name="Children" value="0" />
+                    </div>
+
+
+                    <div class="tour__option">
+                        <input id="meals" type="checkbox" name="Meals" />
+                        <label for="meals">
+                            Питание:
+                            <div>
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </label>
+
                     </div>
 
                     <div class="tour__option">
-                        <label>Ночей:</label>
-                        <input type="number" min="1" max="30" name="Nights" value="1" />
+                        <input id="Wifi" type="checkbox" name="Wifi" />
+                        <label for="Wifi">
+                            Wi-fi:
+                            <div>
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </label>
                     </div>
 
-                    <div class="tour__option">
-                        <label>Питание:</label>
-                        <input type="checkbox" name="Meals" value="1" />
-                    </div>
 
-                    <div class="tour__option">
-                        <label>Wi-fi:</label>
-                        <input type="checkbox" name="Wifi" value="1" />
-                    </div>
 
-                    <select name="AirlineId">
-                        @foreach(var i in ViewBag.Airlines)
+                    <div class="tour__option" name="AirlineId">
+                        <span>Авиакомпания:</span>
+
+                        @foreach (var i in ViewBag.Airlines)
                         {
-                            <option value="@i.Id">@i.Name</option>
+                            <input required name="AirlineId" id="@i.Name" type="radio" value="@i.Id">
+                            <label for="@i.Name">@i.Name</label>
                         }
-                    </select>
 
-                    <input type="hidden" name="TourId" value="@Model.Id"/>
+
+                    </div>
+
+
+
+                    <input type="hidden" name="TourId" value="@Model.Id" />
 
                     <div class="tour__price">@Model.Price <span>РУБ</span></div>
 
                     <button type="submit" class="button tour__button">Заказать</button>
                 </form>
+                       
+                    
 
             </div>
             <a href="~/Catalog" class="modal__close"><i class="fas fa-times"></i></a>

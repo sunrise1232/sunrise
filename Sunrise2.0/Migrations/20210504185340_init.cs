@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Sunrise2._0.Migrations
 {
-    public partial class adg : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,8 @@ namespace Sunrise2._0.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 50, nullable: false)
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Image = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,22 +61,6 @@ namespace Sunrise2._0.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Providers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProviderName = table.Column<string>(maxLength: 50, nullable: false),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Address = table.Column<string>(maxLength: 50, nullable: false),
-                    PhoneNumber = table.Column<string>(maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Providers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -198,25 +183,6 @@ namespace Sunrise2._0.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Services",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProviderId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Services", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Services_Providers_ProviderId",
-                        column: x => x.ProviderId,
-                        principalTable: "Providers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Towns",
                 columns: table => new
                 {
@@ -279,6 +245,26 @@ namespace Sunrise2._0.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TourId = table.Column<int>(nullable: false),
+                    Data = table.Column<byte[]>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Images_Tours_TourId",
+                        column: x => x.TourId,
+                        principalTable: "Tours",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -293,7 +279,8 @@ namespace Sunrise2._0.Migrations
                     Children = table.Column<int>(nullable: false),
                     Nights = table.Column<int>(nullable: false),
                     Meals = table.Column<bool>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false)
+                    Date = table.Column<DateTime>(nullable: false),
+                    Price = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -363,6 +350,11 @@ namespace Sunrise2._0.Migrations
                 column: "TownId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Images_TourId",
+                table: "Images",
+                column: "TourId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_AirlineId",
                 table: "Orders",
                 column: "AirlineId");
@@ -376,11 +368,6 @@ namespace Sunrise2._0.Migrations
                 name: "IX_Orders_TourId",
                 table: "Orders",
                 column: "TourId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Services_ProviderId",
-                table: "Services",
-                column: "ProviderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tours_HotelId",
@@ -411,10 +398,10 @@ namespace Sunrise2._0.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Images");
 
             migrationBuilder.DropTable(
-                name: "Services");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -427,9 +414,6 @@ namespace Sunrise2._0.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tours");
-
-            migrationBuilder.DropTable(
-                name: "Providers");
 
             migrationBuilder.DropTable(
                 name: "Hotels");

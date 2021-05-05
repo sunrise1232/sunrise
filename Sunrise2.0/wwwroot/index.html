@@ -149,9 +149,17 @@
             <div class="popular-tours__title">Популярные направления</div>
 
             <div class="carousel popular-tours__carousel">
-                <img class="carousel__item" src="img/promo/hill.png" alt="">
-                <img class="carousel__item" src="img/slider/slide1.jpg" alt="">
-                <img class="carousel__item" src="img/slider/slide1.jpg" alt="">
+                <a class="carousel__item" href="">
+                    <img src="img/promo/hill.png" alt="">
+                </a>
+                
+                <a class="carousel__item"  href="">
+                    <img src="img/promo/hill.png" alt="">
+                </a>
+                
+                <a class="carousel__item"  href="">
+                    <img src="img/promo/hill.png" alt="">
+                </a>
             </div>
 
         </div>
@@ -309,6 +317,123 @@
 
 
     <!-- catalog------------------------------------------------------------------- -->
+
+
+
+
+
+    <!-- tour------------------------------------------------------------------- -->
+
+
+    <div class="tour">
+        <div class="container">
+            <div class="tour__dialog">
+                <div class="tour__right">
+                    <div class="modalCarousel tour__carousel">
+                        <div class="carousel__item"><img src="~/img/promo/hill.png" alt="img"></div>
+                        <div class="carousel__item"><img src="~/img/slider/slide1.jpg" alt="img"></div>
+                        <div class="carousel__item"><img src="~/img/slider/slide1.jpg" alt="img"></div>
+                    </div>
+                    <div class="tour__title">@Model.Hotel.Name</div>
+                    <div class="tour__city">@Model.Hotel.Town.Region.Name, @Model.Hotel.Town.Name</div>
+                    <div class="tour__descr">@Model.Description</div>
+                    <div class="tour__rating">@Model.Rating <i class="far fa-heart"></i></div>
+                    
+                </div>
+    
+    
+                <div class="tour__left">
+    
+                    <form method="post">
+    
+                        <div class="tour__option">
+                            <label>День:</label>                        
+                            <input required type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="DateDep" value="" />
+    
+                        </div>
+
+                        <div class="tour__option">
+                            <label>Ночей:</label>
+                            <input type="number" min="1" max="30" name="Nights" value="1" />
+                        </div>
+    
+                        <div class="tour__option">
+                            <label>Взрослых:</label>
+                            <input type="number" min="1" max="30" name="Adults" value="1" />
+                        </div>
+    
+                        <div class="tour__option">
+                            <label>Детей:</label>
+                            <input type="number"  min="0" max="30" name="Children" value="0" />
+                        </div>
+    
+    
+                        <div class="tour__option">
+                            <input id="meals" type="checkbox" name="Meals"/>
+                            <label for="meals">
+                                Питание:
+                                <div>
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </label>
+
+                        </div>
+    
+                        <div class="tour__option">
+                            <input id="Wifi" type="checkbox" name="Wifi"/>
+                            <label for="Wifi">
+                                Wi-fi:
+                                <div>
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </label>
+                        </div>
+
+                        
+    
+                        <div class="tour__option" name="AirlineId">
+                            <span>Авиакомпания:</span> 
+
+                            <input name="AirlineId" id="@i.id" type="radio" value="@i.Id">
+                            <label for="@i.id">S7</label>
+                            
+                            <input name="AirlineId" id="r2" type="radio" value="@i.Id">
+                            <label for="r2">roskosmos</label>
+
+                            
+                            <input name="AirlineId" id="r3" type="radio" value="@i.Id">
+                            <label for="r3">tesla</label>
+
+
+                            
+
+
+                                <!-- <option value="@i.Id">@i.Name</option>
+                                <option value="@i.Id">@i.Name</option>
+                                <option value="@i.Id">@i.Name</option> -->
+                            
+                        </div>
+
+    
+    
+                        <input type="hidden" name="TourId" value="@Model.Id"/>
+    
+                        <div class="tour__price">@Model.Price <span>РУБ</span></div>
+    
+                        <button type="submit" class="button tour__button">Заказать</button>
+                    </form>
+    
+                </div>
+                <a href="~/Catalog" class="modal__close"><i class="fas fa-times"></i></a>
+        </div>
+         </div>
+    </div>
+
+
+    <!-- tour------------------------------------------------------------------- -->
+
+
+
 
 
 

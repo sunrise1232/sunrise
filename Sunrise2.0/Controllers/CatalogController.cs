@@ -64,6 +64,17 @@ namespace Sunrise2._0.Controllers
             return View(tours);
         }
 
+        public IActionResult GetImage(int id)
+        {
+            var image =  _managertour.GetImage(id);
+            if (image == null)
+            {
+                return NotFound();
+            }
+            return File(image.Data, "image/png");
+        }
+
+
 
 
         [HttpPost]
@@ -90,12 +101,7 @@ namespace Sunrise2._0.Controllers
 
         }
 
-        public IActionResult BuyResult(int OrderId)
-        {
-            var order = _managerorder.GetAll().FirstOrDefault(t => t.Id == OrderId);
-
-            return View(order);
-        }
+        
 
         [HttpPost]
         public IActionResult Buy(Order purch)
@@ -103,6 +109,8 @@ namespace Sunrise2._0.Controllers
             ClaimsPrincipal currentUser = this.User;
             purch.ClientId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
             _managerorder.Add(purch);
+            _managertour.IncRating(purch.TourId);
+
 
 
 
@@ -110,6 +118,12 @@ namespace Sunrise2._0.Controllers
             return RedirectToAction("BuyResult", "Catalog", new { OrderId = purch.Id });
         }
 
+        public IActionResult BuyResult(int OrderId)
+        {
+            var order = _managerorder.GetAll().FirstOrDefault(t => t.Id == OrderId);
+
+            return View(order);
+        }
 
         /*SunriseContext _context;
 

@@ -1,22 +1,22 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Sunrise2._0.Migrations
 {
-    public partial class fff : Migration
+    public partial class sadfa : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<byte[]>(
-                name: "Image",
+            migrationBuilder.AddColumn<int>(
+                name: "PriceMultiplier",
                 table: "Airlines",
-                nullable: true);
+                nullable: false,
+                defaultValue: 0);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Image",
+                name: "PriceMultiplier",
                 table: "Airlines");
         }
     }

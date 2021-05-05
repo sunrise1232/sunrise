@@ -25,13 +25,23 @@ namespace Sunrise2._0.Manager.TourManager
             _ContextTour = context;
         }
 
-      
 
-        //public ICollection<Tour> GetAll() => _ContextTour.Tours.ToList();
+
+        public void IncRating(int TourId)
+        {
+            var Tour = _ContextTour.Tours.FirstOrDefault(i => i.Id == TourId);
+            Tour.Rating++;
+            _ContextTour.SaveChanges();
+        }
 
         public ICollection<Tour> GetAll()
         {
             return  _ContextTour.Tours.Include(t => t.Hotel.Town.Region).ToList();
+        }
+
+        public Image GetImage(int id)
+        {
+            return _ContextTour.Images.FirstOrDefault(i => i.TourId == id);
         }
 
 

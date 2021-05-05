@@ -41,8 +41,6 @@ $(document).ready(function(){
 
     // like
 
-    $('.tour__rating').on('click', function() {
-        $('.fa-heart').toggleClass("fas");
-    });
+
 
 });
