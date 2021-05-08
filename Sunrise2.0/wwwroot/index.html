@@ -345,80 +345,89 @@
                 <div class="tour__left">
     
                     <form method="post">
-    
-                        <div class="tour__option">
-                            <label>День:</label>                        
-                            <input required type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="DateDep" value="" />
-    
-                        </div>
 
                         <div class="tour__option">
-                            <label>Ночей:</label>
-                            <input type="number" min="1" max="30" name="Nights" value="1" />
+                            <label for="date-dep">День:</label>
+                            <input id="date-dep" required type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" name="DateDep" value="" />
+    
                         </div>
     
                         <div class="tour__option">
-                            <label>Взрослых:</label>
-                            <input type="number" min="1" max="30" name="Adults" value="1" />
+                            <label for="nights">Ночей:</label>
+                            <input id="nights" type="number" min="1" max="30" name="Nights" value="1" />
                         </div>
     
                         <div class="tour__option">
-                            <label>Детей:</label>
-                            <input type="number"  min="0" max="30" name="Children" value="0" />
+                            <label for="adults">Взрослых:</label>
+                            <input id="adults" type="number" min="1" max="30" name="Adults" value="1" />
+                        </div>
+    
+                        <div class="tour__option">
+                            <label for="children">Детей:</label>
+                            <input id="children" type="number" min="0" max="30" name="Children" value="0" />
                         </div>
     
     
                         <div class="tour__option">
-                            <input id="meals" type="checkbox" name="Meals"/>
+                            <input id="meals" type="checkbox" name="Meals" />
                             <label for="meals">
                                 Питание:
                                 <div>
                                     <i class="fas fa-check"></i>
                                 </div>
                             </label>
-
+    
                         </div>
     
                         <div class="tour__option">
-                            <input id="Wifi" type="checkbox" name="Wifi"/>
-                            <label for="Wifi">
+                            <input id="wifi" type="checkbox" name="Wifi" />
+                            <label for="wifi">
                                 Wi-fi:
                                 <div>
                                     <i class="fas fa-check"></i>
                                 </div>
                             </label>
                         </div>
-
-                        
+    
+    
     
                         <div class="tour__option" name="AirlineId">
-                            <span>Авиакомпания:</span> 
+                            <span>Авиакомпания:</span>
+    
 
-                            <input name="AirlineId" id="@i.id" type="radio" value="@i.Id">
-                            <label for="@i.id">S7</label>
+                                
+                                    <span class="tour__radio">
+                                        <input type="hidden" value="0,2">
+
+                                        <input required name="AirlineId" id="@i.Id"  type="radio" value="@i.Id">
+                                        <label for="@i.Id">@i.Name</label>
+                                        
+                                    </span>
+
+                                    <span class="tour__radio">
+                                        <input type="hidden" value="0,3">
+
+                                        <input required name="AirlineId" id="@i.Id1"  type="radio" value="@i.Id">
+                                        <label for="@i.Id1">@i.Name</label>
+                                        
+                                    </span>
+                               
                             
-                            <input name="AirlineId" id="r2" type="radio" value="@i.Id">
-                            <label for="r2">roskosmos</label>
-
-                            
-                            <input name="AirlineId" id="r3" type="radio" value="@i.Id">
-                            <label for="r3">tesla</label>
-
-
-                            
-
-
-                                <!-- <option value="@i.Id">@i.Name</option>
-                                <option value="@i.Id">@i.Name</option>
-                                <option value="@i.Id">@i.Name</option> -->
-                            
+    
+    
                         </div>
-
     
     
-                        <input type="hidden" name="TourId" value="@Model.Id"/>
     
-                        <div class="tour__price">@Model.Price <span>РУБ</span></div>
+                        <input type="hidden" name="TourId" value="@Model.Id" />
+                        <!-- <input id="tour-price" value="@Model.Price" /> -->
+                        <input id="tour-price" value="3000" />
+                        
+                        <div class="tour__price">
+                            <div></div>
+                            <span>РУБ</span>
+                            <input type="hidden" name="Price" value="123" />
+                        </div>
     
                         <button type="submit" class="button tour__button">Заказать</button>
                     </form>
@@ -604,5 +613,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/tour.js"></script>
 </body>
 </html>
