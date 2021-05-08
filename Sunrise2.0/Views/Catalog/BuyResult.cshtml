@@ -47,7 +47,7 @@
                 </li>
                 <li>
                     <span class="buy-result__key">Дата вылета:</span>
-                    <span class="buy-result__value">@Model.DateDep</span>
+                    <span class="buy-result__value">@Model.DateDep.ToString("yyyy-MM-dd")</span>
                 </li>
                 <li>
                     <span class="buy-result__key">Количество ночей:</span>
@@ -93,7 +93,7 @@
                 </li>
                 <li>
                     <span class="buy-result__key">Цена:</span>
-                    <span class="buy-result__value">000000</span>
+                    <span class="buy-result__value">@Model.Price руб.</span>
                 </li>
 
 
