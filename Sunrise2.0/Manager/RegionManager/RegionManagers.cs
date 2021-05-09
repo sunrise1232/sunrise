@@ -12,6 +12,14 @@ namespace Sunrise2._0.Manager.RegionManager
 
         private SunriseContext _ContextRegion;
 
+        public void Add(string Name)
+        {
+            Region Region = new Region();
+            Region.Name = Name;
+            _ContextRegion.Add(Region);
+            _ContextRegion.SaveChanges();
+        }
+
 
         public RegionManagers(SunriseContext context)
         {

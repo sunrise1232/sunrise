@@ -3,7 +3,7 @@ let tourPrice = document.querySelector('#tour-price').value;
 let priceDiv = document.querySelector('.tour__price div');
 
 priceInput.value = tourPrice;
-priceDiv.textContent = tourPrice;
+priceDiv.textContent = priceInput.value;
 
 function changePriceInput(selector) {
     

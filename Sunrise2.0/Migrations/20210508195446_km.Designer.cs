@@ -10,8 +10,8 @@ using Sunrise2._0.Data;
 namespace Sunrise2._0.Migrations
 {
     [DbContext(typeof(SunriseContext))]
-    [Migration("20210505174159_sadfa")]
-    partial class sadfa
+    [Migration("20210508195446_km")]
+    partial class km
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -245,8 +245,8 @@ namespace Sunrise2._0.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("PriceMultiplier")
-                        .HasColumnType("int");
+                    b.Property<double>("PriceMultiplier")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

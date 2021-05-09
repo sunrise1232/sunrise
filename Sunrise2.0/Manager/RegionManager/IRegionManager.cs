@@ -9,6 +9,9 @@ namespace Sunrise2._0.Manager.RegionManager
     public interface IRegionManager
     {
 
+        public void Add(string Name);
+
+
         public ICollection<Region> GetAll();
 
         public ICollection<Region> Index();

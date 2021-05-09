@@ -13,7 +13,14 @@ namespace Sunrise2._0.Manager.HotelManager
         private SunriseContext _ContextHotel;
 
 
-
+        public void Add(string Name, int TownId)
+        {
+            Hotel Hotel = new Hotel();
+            Hotel.Name = Name;
+            Hotel.TownId = TownId;
+            _ContextHotel.Add(Hotel);
+            _ContextHotel.SaveChanges();
+        }
 
         public HotelManager(SunriseContext context)
         {

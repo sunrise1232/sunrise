@@ -27,6 +27,17 @@ namespace Sunrise2._0.Manager.TourManager
 
 
 
+
+
+        public void Add(Tour Tour)
+        {
+            _ContextTour.Add(Tour);
+            _ContextTour.SaveChanges();
+        }
+
+
+
+
         public void IncRating(int TourId)
         {
             var Tour = _ContextTour.Tours.FirstOrDefault(i => i.Id == TourId);

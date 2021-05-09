@@ -8,6 +8,8 @@ namespace Sunrise2._0.Manager.TownsManager
 {
     public interface ITownsManager
     {
+
+        public void Add(string Name, int RegionId);
         public ICollection<Town> GetAll();
     }
 }

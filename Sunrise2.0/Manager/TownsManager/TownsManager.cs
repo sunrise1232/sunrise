@@ -12,7 +12,14 @@ namespace Sunrise2._0.Manager.TownsManager
         private SunriseContext _ContextTowns;
 
 
-
+        public void Add(string Name, int RegionId)
+        {
+            Town Town= new Town();
+            Town.Name = Name;
+            Town.RegionId = RegionId;
+            _ContextTowns.Add(Town);
+            _ContextTowns.SaveChanges();
+        }
 
         public TownsManager(SunriseContext context)
         {

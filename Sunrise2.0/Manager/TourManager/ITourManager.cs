@@ -9,6 +9,8 @@ namespace Sunrise2._0.Manager.TourManager
     public interface ITourManager
     {
 
+        public void Add(Tour Tour);
+
 
         public ICollection<Tour> GetAll();
         public Image GetImage(int id);
