@@ -21,6 +21,16 @@ namespace Sunrise2._0.Manager.TownsManager
             _ContextTowns.SaveChanges();
         }
 
+        public int FindTowns(string Name,int regionid)
+        {
+
+           
+
+            var r = _ContextTowns.Towns.Where(e=> e.RegionId== regionid).First(d => d.Name == Name);
+
+
+            return r.Id;
+        }
         public TownsManager(SunriseContext context)
         {
             _ContextTowns = context;

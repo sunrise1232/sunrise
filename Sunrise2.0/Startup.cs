@@ -4,8 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sunrise2._0.Manager.AirlineManger;
+using Sunrise2._0.Manager.HotelManager;
 using Sunrise2._0.Manager.OrderManager;
+using Sunrise2._0.Manager.RegionManager;
 using Sunrise2._0.Manager.TourManager;
+using Sunrise2._0.Manager.TownsManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +34,10 @@ namespace Sunrise2._0
             services.AddTransient<ITourManager, TourManager>();
             services.AddTransient<IOrderManager, OrderManager>();
             services.AddTransient<IAirlineManager, AirlineManager>();
+            services.AddTransient<IRegionManager, RegionManagers>();
+            services.AddTransient<ITownsManager, TownsManager>();
+            services.AddTransient<IHotelManager, HotelManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

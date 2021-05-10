@@ -20,7 +20,17 @@ namespace Sunrise2._0.Manager.RegionManager
             _ContextRegion.SaveChanges();
         }
 
+        public int FindRegion(string Name)
+        {
+           
+   
 
+                var r = _ContextRegion.Regions.First(d => d.Name == Name);
+               
+      
+            return r.Id;
+        }
+      
         public RegionManagers(SunriseContext context)
         {
             _ContextRegion = context;

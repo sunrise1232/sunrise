@@ -29,7 +29,17 @@ namespace Sunrise2._0.Manager.HotelManager
 
 
         public ICollection<Hotel> GetAll() => _ContextHotel.Hotels.ToList();
-       
+
+        public int FindHotel(string Name, int townid)
+        {
+
+
+
+            var r = _ContextHotel.Hotels.Where(e => e.TownId == townid).First(d => d.Name == Name);
+
+
+            return r.Id;
+        }
 
         public ICollection<Hotel> Index11()
         {

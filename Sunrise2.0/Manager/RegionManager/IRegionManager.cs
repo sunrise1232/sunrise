@@ -11,6 +11,7 @@ namespace Sunrise2._0.Manager.RegionManager
 
         public void Add(string Name);
 
+        public int FindRegion(string Name);
 
         public ICollection<Region> GetAll();
 
