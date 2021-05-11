@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Редактирование тура";
+}
+
+
+<div>
+    <div class="container">
+        <form method="post">
+            <label for="Description">Описание</label>
+            <input required="Description" type="text" name="Description" value="" />
+
+            <label for="Price">Цена</label>
+            <input required id="Price" type="text" name="Price" value="" />
+
+            <input type="hidden" name="TourId" value="@ViewBag.TourId" />
+
+            <button type="submit" class="button">Редактировать</button>
+
+        </form>
+    </div>
+</div>
+

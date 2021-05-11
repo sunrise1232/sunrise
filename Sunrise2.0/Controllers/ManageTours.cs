@@ -53,14 +53,32 @@ namespace Sunrise2._0.Controllers
         [HttpPost]
         public IActionResult Index(int TourId)
         {
-            Tour tours;
-            
-            tours = _managertour.FindTour(TourId); 
-           
-             _managertour.Delete(tours);
-          
-            return Redirect("/ManageTours/Index");
+                Tour tours = _managertour.FindTour(TourId);
+
+                _managertour.Delete(tours);
+
+                return Redirect("/ManageTours/Index");
+
         }
+
+        public IActionResult Edit(int TourId)
+        {
+            ViewBag.TourId = TourId;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int TourId, string Description, int Price)
+        {
+            _managertour.Edit(TourId, Description, Price);
+
+
+            return Redirect("/ManageTours");
+        }
+
+
+
+
 
 
         public IActionResult Add()

@@ -42,6 +42,17 @@ namespace Sunrise2._0.Manager.TourManager
             _ContextTour.SaveChanges();
         }
 
+        public void Edit(int TourId, string Description, int Price)
+        {
+            Tour r = _ContextTour.Tours.First(d => d.Id == TourId);
+            r.Description = Description;
+            r.Price = Price;
+            _ContextTour.SaveChanges();
+
+
+        }
+
+
         public Tour FindTour(int id)
         {
 

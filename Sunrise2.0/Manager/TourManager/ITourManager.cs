@@ -12,7 +12,7 @@ namespace Sunrise2._0.Manager.TourManager
         public void Add(Tour Tour);
 
         public void Delete(Tour Tour);
-
+        public void Edit(int TourId, string Description, int Price);
         public Tour FindTour(int id);
         public ICollection<Tour> GetAll();
         public Image GetImage(int id);

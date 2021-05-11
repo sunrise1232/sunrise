@@ -12,10 +12,10 @@
                 <div class="modalCarousel tour__carousel">
                     @foreach (var i in ViewBag.Images)
                     {
-                    <div class="carousel__item">
-                        @Html.Raw("<img src=\"data:image/jpeg;base64,"
-                            + Convert.ToBase64String(i.Data) + "\" />")
-                    </div>
+                        <div class="carousel__item">
+                            @Html.Raw("<img src=\"data:image/jpeg;base64,"
+                                + Convert.ToBase64String(i.Data) + "\" />")
+                        </div>
                     }
                 </div>
                 <div class="tour__title">@Model.Hotel.Name</div>
@@ -54,7 +54,7 @@
 
 
 
-                    
+
 
                     <div class="tour__option">
                         <input id="meals" name="Meals" type="checkbox" value="true" />

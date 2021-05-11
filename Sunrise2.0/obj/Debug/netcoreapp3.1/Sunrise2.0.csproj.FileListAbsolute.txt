@@ -1029,3 +1029,4 @@ C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Add.cshtml
 C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\BuyResult.cshtml.g.cs
 C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Add.cshtml.g.cs
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Index.cshtml.g.cs
+C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Edit.cshtml.g.cs
