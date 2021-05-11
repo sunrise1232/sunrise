@@ -35,7 +35,20 @@ namespace Sunrise2._0.Manager.TourManager
             _ContextTour.SaveChanges();
         }
 
+        public void Delete(Tour Tour)
+        {
 
+            _ContextTour.Tours.Remove(Tour);
+            _ContextTour.SaveChanges();
+        }
+
+        public Tour FindTour(int id)
+        {
+
+            Tour r = _ContextTour.Tours.First(d => d.Id == id);
+
+            return r;
+        }
 
 
         public void IncRating(int TourId)

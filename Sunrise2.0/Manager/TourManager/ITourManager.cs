@@ -11,7 +11,9 @@ namespace Sunrise2._0.Manager.TourManager
 
         public void Add(Tour Tour);
 
+        public void Delete(Tour Tour);
 
+        public Tour FindTour(int id);
         public ICollection<Tour> GetAll();
         public Image GetImage(int id);
         public ICollection<Image> GetImages(int id);

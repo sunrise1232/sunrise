@@ -1,0 +1,34 @@
+﻿@using Sunrise2._0.Storage.Entity
+@model IEnumerable<Tour>
+
+
+@{
+    ViewData["Title"] = "Управление турами";
+}
+
+<div class="service">
+    <div class="container">
+        <h3 class="service__title">Управление турами</h3>
+        <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
+    </div>
+</div>
+
+<div class="manage-tours">
+    <div class="container">
+        @foreach (var t in Model)
+        {
+
+        <form method="post">
+
+            <span>@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name, @t.Hotel.Name </span>
+            
+            
+            <input type="hidden" name="TourId" value="@t.Id" />
+            <button type="submit">Удалить</button>
+
+        </form>
+        }
+
+        <a href="~/ManageTours/Add">Добавить тур</a>
+    </div>
+</div>

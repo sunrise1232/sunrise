@@ -1,25 +1,30 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "ыыыыыыыыыыыыыы";
 }
 
 
+<div>
+    <div class="container">
+        <form method="post">
+            <label for="Description">Описание</label>
+            <input required="Description" type="text" name="Description1" value="" />
 
-<form method="post">
-    <label for="Description">Описание</label>
-    <input required ="Description" type="text" name="Description1" value="" />
+            <label for="Hotel">Отель</label>
+            <input required id="Hotel" type="text" name="HotelName1" value="" />
 
-    <label for="Hotel">Отель</label>
-    <input required id="Hotel" type="text" name="HotelName1" value="" />
+            <label for="Town">Город</label>
+            <input required id="Town" type="text" name="TownName1" value="" />
 
-    <label for="Town">Город</label>
-    <input required id="Town" type="text" name="TownName1" value="" />
+            <label for="Region">Регион</label>
+            <input required id="Region" type="text" name="RegionName1" value="" />
 
-    <label for="Region">Регион</label>
-    <input required id="Region" type="text" name="RegionName1" value="" />
+            <label for="Price">Цена</label>
+            <input required id="Price" type="text" name="Price1" value="" />
 
-    <label for="Price">Цена</label>
-    <input required id="Price" type="text" name="Price1" value="" />
+            <button type="submit" class="button">Заказать</button>
 
-    <button type="submit" class="button">Заказать</button>
+        </form>
+    </div>
+</div>
 
-</form>

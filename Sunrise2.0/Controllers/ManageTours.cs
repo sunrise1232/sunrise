@@ -41,18 +41,37 @@ namespace Sunrise2._0.Controllers
 
         }
 
+      
+        public IActionResult Index()
+        {
+            IEnumerable<Tour> tours;
+            tours = _managertour.GetAll();
+
+            return View(tours);
+        }
+
+        [HttpPost]
+        public IActionResult Index(int TourId)
+        {
+            Tour tours;
+            
+            tours = _managertour.FindTour(TourId); 
+           
+             _managertour.Delete(tours);
+          
+            return Redirect("/ManageTours/Index");
+        }
+
 
         public IActionResult Add()
         {
-
             return View();
         }
 
 
-        [HttpPost]
+       [HttpPost]
         public IActionResult Add(string Description1, string HotelName1, string TownName1, string RegionName1, int Price1)
         {
-
             Tour Tour = new Tour();
 
             Tour.Description = Description1;
@@ -94,7 +113,7 @@ namespace Sunrise2._0.Controllers
             _managertour.Add(Tour);
 
 
-            return View();
+            return Redirect("/ManageTours/Add");
         }
     }
 }
