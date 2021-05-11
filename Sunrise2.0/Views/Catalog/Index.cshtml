@@ -9,7 +9,7 @@
 <div class="service">
     <div class="container">
         <h3 class="service__title">Каталог</h3>
-        <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
+        <div class="service__descr">Огромный выбор путешествий на любой вкус. Спешите забронировать тур!</div>
     </div>
 </div>
 
@@ -61,7 +61,7 @@
                 <div class="col-md-6">
                     <form class="catalog__search" method="post" action="~/Catalog/Search">
 
-                        <input type="text" id="search" placeholder="search" name="Name" />
+                        <input type="text" id="search" placeholder="Поиск" name="Name" value="@ViewBag.Name" />
                         <button type="submit">
                             <i class="fas fa-search"></i>
                         </button>
@@ -86,7 +86,7 @@
                     <div class="col-md-6">
                         <a href="~/Catalog/Buy?TourId=@t.Id" class="catalog-item">
                             <div class="catalog-item__img">
-                                <img src="@Url.Action("GetImage", new { id=t.Id})" />
+                                <img src="~/img/slider/slide1.jpg" alt="">
                             </div>
                             <div class="catalog-item__content">
                                 <div class="catalog-item__title">@t.Hotel.Name</div>
@@ -104,6 +104,3 @@
         </div>
     </div>
 </section>
-
-
-
