@@ -95,6 +95,7 @@ namespace Sunrise2._0.Controllers
 
             var tour = _managertour.GetAll().FirstOrDefault(t => t.Id == TourId);
             ViewBag.Airlines = _managerAirline.GetAll();
+            ViewBag.Images = _managertour.GetImages(TourId);
 
 
             return View(tour);

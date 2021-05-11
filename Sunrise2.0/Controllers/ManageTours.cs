@@ -52,6 +52,7 @@ namespace Sunrise2._0.Controllers
         [HttpPost]
         public IActionResult Add(string Description1, string HotelName1, string TownName1, string RegionName1, int Price1)
         {
+
             Tour Tour = new Tour();
 
             Tour.Description = Description1;

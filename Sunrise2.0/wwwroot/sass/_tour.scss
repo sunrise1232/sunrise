@@ -132,7 +132,7 @@
         z-index: -1;
         opacity: 0;
 
-        &+label:after {
+        &~label:after {
             content: "";
             position: absolute;
             top: 50%;
@@ -148,11 +148,11 @@
             transition: 0.1s linear all;
         }
 
-        &+label:hover:after {
+        &~label:hover:after {
             border-color: rgba(0,0,0,0.5);
         }
 
-        &+label div {
+        &~label div {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -165,7 +165,7 @@
         }
 
 
-        &+label div i {
+        &~label div i {
             font-size: 20px;
             color: $blue;
             position: relative;
@@ -178,11 +178,8 @@
 
     }
 
-    /*input:checked+label i {
-        opacity: 1;
-    }*/
 
-    input:checked+label div {
+    input:checked~label div {
         width: 25px;
     }
 

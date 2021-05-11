@@ -10,9 +10,13 @@
         <div class="tour__dialog">
             <div class="tour__right">
                 <div class="modalCarousel tour__carousel">
-                    <div class="carousel__item"><img src="~/img/promo/hill.png" alt="img"></div>
-                    <div class="carousel__item"><img src="~/img/slider/slide1.jpg" alt="img"></div>
-                    <div class="carousel__item"><img src="~/img/slider/slide1.jpg" alt="img"></div>
+                    @foreach (var i in ViewBag.Images)
+                    {
+                    <div class="carousel__item">
+                        @Html.Raw("<img src=\"data:image/jpeg;base64,"
+                            + Convert.ToBase64String(i.Data) + "\" />")
+                    </div>
+                    }
                 </div>
                 <div class="tour__title">@Model.Hotel.Name</div>
                 <div class="tour__city">@Model.Hotel.Town.Region.Name, @Model.Hotel.Town.Name</div>
@@ -50,10 +54,11 @@
 
 
 
-
+                    
 
                     <div class="tour__option">
-                        <input id="meals" type="checkbox" name="Meals" value="1" />
+                        <input id="meals" name="Meals" type="checkbox" value="true" />
+                        <input name="Meals" type="hidden" value="false" />
                         <label for="meals">
                             Питание:
                             <div>
@@ -66,7 +71,8 @@
 
 
                     <div class="tour__option">
-                        <input id="wifi" type="checkbox" name="Wifi" />
+                        <input id="wifi" name="Wifi" type="checkbox" value="true" />
+                        <input name="Wifi" type="hidden" value="false" />
                         <label for="wifi">
                             Wi-fi:
                             <div>

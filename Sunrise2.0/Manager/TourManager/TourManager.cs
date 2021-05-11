@@ -55,6 +55,11 @@ namespace Sunrise2._0.Manager.TourManager
             return _ContextTour.Images.FirstOrDefault(i => i.TourId == id);
         }
 
+        public ICollection<Image> GetImages(int id)
+        {
+            return _ContextTour.Images.Where(i => i.TourId == id).ToList();
+        }
+
 
         public ICollection<Tour> SearchManager(string Name)
         {

@@ -790,7 +790,7 @@ body {
             opacity: 0
         }
 
-            .tour__option input[type=checkbox] + label:after {
+            .tour__option input[type=checkbox] ~ label:after {
                 content: "";
                 position: absolute;
                 top: 50%;
@@ -806,11 +806,11 @@ body {
                 transition: .1s linear all
             }
 
-            .tour__option input[type=checkbox] + label:hover:after {
+            .tour__option input[type=checkbox] ~ label:hover:after {
                 border-color: rgba(0,0,0,.5)
             }
 
-            .tour__option input[type=checkbox] + label div {
+            .tour__option input[type=checkbox] ~ label div {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
@@ -822,7 +822,7 @@ body {
                 transition: .1s linear all
             }
 
-                .tour__option input[type=checkbox] + label div i {
+                .tour__option input[type=checkbox] ~ label div i {
                     font-size: 20px;
                     color: #00aeef;
                     position: relative;
@@ -832,7 +832,7 @@ body {
                     transition: .1s ease all
                 }
 
-        .tour__option input:checked + label div {
+        .tour__option input:checked ~ label div {
             width: 25px
         }
 
