@@ -88,7 +88,7 @@
 
                         @foreach (var i in ViewBag.Airlines)
                         {
-                            <span class="tour__radio">
+                            <span style="margin-bottom: 15px;" class="tour__radio">
                                 <input type="hidden" value="@i.PriceMultiplier">
                                 <input required name="AirlineId" id="@i.Name" type="radio" value="@i.Id">
                                 <label for="@i.Name">@i.Name</label>

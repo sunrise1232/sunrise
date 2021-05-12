@@ -39,16 +39,15 @@ namespace Sunrise2._0.Controllers
             List<Tour> tours;
             try
             {
-                tours = _managertour.GetAll().Result.OrderByDescending(t => t.Rating).ToList().GetRange(0, 2);
+                tours = _managertour.GetAll().OrderByDescending(t => t.Rating).ToList().GetRange(0, 2);
             }
             catch {
-                tours = _managertour.GetAll().Result.ToList();
+                tours = _managertour.GetAll().ToList();
             }
             
 
             return View(tours);
         }
-
 
         public IActionResult GetImage(int id)
         {

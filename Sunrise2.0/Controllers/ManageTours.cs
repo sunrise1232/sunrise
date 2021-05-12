@@ -19,8 +19,8 @@ using Microsoft.AspNetCore.Authorization;
 using Sunrise2._0.Manager.RegionManager;
 using Sunrise2._0.Manager.HotelManager;
 using Sunrise2._0.Manager.TownsManager;
-using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace Sunrise2._0.Controllers
 {
@@ -43,11 +43,11 @@ namespace Sunrise2._0.Controllers
 
         }
 
-
+      
         public IActionResult Index()
         {
             IEnumerable<Tour> tours;
-            tours = _managertour.GetAll().Result;
+            tours = _managertour.GetAll();
 
             return View(tours);
         }
@@ -55,11 +55,11 @@ namespace Sunrise2._0.Controllers
         [HttpPost]
         public IActionResult Index(int TourId)
         {
-            Tour tours = _managertour.FindTour(TourId);
+                Tour tours = _managertour.FindTour(TourId);
 
-            _managertour.Delete(tours);
+                _managertour.Delete(tours);
 
-            return Redirect("/ManageTours/Index");
+                return Redirect("/ManageTours/Index");
 
         }
 
@@ -89,7 +89,7 @@ namespace Sunrise2._0.Controllers
         }
 
 
-        [HttpPost]
+       [HttpPost]
         public IActionResult Add(IFormFile Data, string Description, string HotelName, string TownName, string RegionName, int Price)
         {
             Tour Tour = new Tour();
@@ -98,11 +98,11 @@ namespace Sunrise2._0.Controllers
 
             int idregion;
             try
-            { idregion = _managerregion.FindRegion(RegionName); }
+            {  idregion = _managerregion.FindRegion(RegionName); }
             catch
             {
                 _managerregion.Add(RegionName);
-                idregion = _managerregion.FindRegion(RegionName);
+                 idregion = _managerregion.FindRegion(RegionName);
             }
 
 
@@ -126,8 +126,8 @@ namespace Sunrise2._0.Controllers
             }
 
             Tour.HotelId = idHotel;
-
-
+         
+            
             Tour.Price = Price;
 
             _managertour.Add(Tour);
@@ -145,9 +145,11 @@ namespace Sunrise2._0.Controllers
 
                 _managertour.AddImage(imageData, 5);
             }
+            
 
 
-            return Redirect("/ManageTours/Add");
+
+            return Redirect("/ManageTours");
         }
     }
 }

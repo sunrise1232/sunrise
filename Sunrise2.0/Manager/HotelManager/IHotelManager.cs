@@ -12,8 +12,8 @@ namespace Sunrise2._0.Manager.HotelManager
         public void Add(string Name, int TownId);
         public int FindHotel(string Name, int TownId);
 
-        public Task<ICollection<Hotel>> GetAll();
+        public ICollection<Hotel> GetAll();
 
-        public Task<ICollection<Hotel>> Index11();
+        public ICollection<Hotel> Index11();
     }
 }

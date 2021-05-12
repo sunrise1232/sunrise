@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Sunrise2._0.Data;
 using Sunrise2._0.Storage.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Sunrise2._0.Manager.HotelManager
 {
@@ -19,8 +18,8 @@ namespace Sunrise2._0.Manager.HotelManager
             Hotel Hotel = new Hotel();
             Hotel.Name = Name;
             Hotel.TownId = TownId;
-             _ContextHotel.Add(Hotel);
-             _ContextHotel.SaveChanges();
+            _ContextHotel.Add(Hotel);
+            _ContextHotel.SaveChanges();
         }
 
         public HotelManager(SunriseContext context)
@@ -29,7 +28,7 @@ namespace Sunrise2._0.Manager.HotelManager
         }
 
 
-        public async Task<ICollection<Hotel>> GetAll() => await _ContextHotel.Hotels.ToListAsync();
+        public ICollection<Hotel> GetAll() => _ContextHotel.Hotels.ToList();
 
         public int FindHotel(string Name, int townid)
         {
@@ -42,9 +41,9 @@ namespace Sunrise2._0.Manager.HotelManager
             return r.Id;
         }
 
-        public async Task<ICollection<Hotel>> Index11()
+        public ICollection<Hotel> Index11()
         {
-            return await _ContextHotel.Hotels.ToListAsync();
+            return _ContextHotel.Hotels.ToList();
         }
     }
 }

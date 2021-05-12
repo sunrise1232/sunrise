@@ -44,19 +44,19 @@ namespace Sunrise2._0.Controllers
             switch (sort)
             {
                 case 1:
-                    tours = _managertour.GetAll().Result.OrderBy(t => t.Rating);
+                    tours = _managertour.GetAll().OrderBy(t => t.Rating);
                     break;
                 case 2:
-                    tours = _managertour.GetAll().Result.OrderByDescending(t => t.Rating);
+                    tours = _managertour.GetAll().OrderByDescending(t => t.Rating);
                     break;
                 case 3:
-                    tours = _managertour.GetAll().Result.OrderBy(t => t.Price);
+                    tours = _managertour.GetAll().OrderBy(t => t.Price);
                     break;
                 case 4:
-                    tours = _managertour.GetAll().Result.OrderByDescending(t => t.Price);
+                    tours = _managertour.GetAll().OrderByDescending(t => t.Price);
                     break;
                 default:
-                    tours = _managertour.GetAll().Result;
+                    tours = _managertour.GetAll();
                     break;
             }
             ViewBag.Sort = sort;
@@ -93,7 +93,7 @@ namespace Sunrise2._0.Controllers
         public IActionResult Buy(int TourId)
         {
 
-            var tour = _managertour.GetAll().Result.FirstOrDefault(t => t.Id == TourId);
+            var tour = _managertour.GetAll().FirstOrDefault(t => t.Id == TourId);
             ViewBag.Airlines = _managerAirline.GetAll();
             ViewBag.Images = _managertour.GetImages(TourId);
 
@@ -105,10 +105,12 @@ namespace Sunrise2._0.Controllers
         
 
         [HttpPost]
-        public IActionResult Buy(Order purch)
+        public async Task<IActionResult> Buy(Order purch)
         {
             ClaimsPrincipal currentUser = this.User;
             purch.ClientId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+
             _managerorder.Add(purch);
             _managertour.IncRating(purch.TourId);
 
@@ -121,7 +123,7 @@ namespace Sunrise2._0.Controllers
 
         public IActionResult BuyResult(int OrderId)
         {
-            var order = _managerorder.GetAll().Result.FirstOrDefault(t => t.Id == OrderId);
+            var order = _managerorder.GetAll().FirstOrDefault(t => t.Id == OrderId);
 
             return View(order);
         }

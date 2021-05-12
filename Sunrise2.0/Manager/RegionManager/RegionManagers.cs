@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Sunrise2._0.Data;
 using Sunrise2._0.Storage.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Sunrise2._0.Manager.RegionManager
 {
@@ -17,8 +16,8 @@ namespace Sunrise2._0.Manager.RegionManager
         {
             Region Region = new Region();
             Region.Name = Name;
-             _ContextRegion.Add(Region);
-             _ContextRegion.SaveChanges();
+            _ContextRegion.Add(Region);
+            _ContextRegion.SaveChanges();
         }
 
         public int FindRegion(string Name)
@@ -37,13 +36,13 @@ namespace Sunrise2._0.Manager.RegionManager
             _ContextRegion = context;
         }
 
-        public async Task<ICollection<Region>> GetAll() => (ICollection<Region>)await _ContextRegion.Regions.ToListAsync();
+        public ICollection<Region> GetAll() => (ICollection<Region>)_ContextRegion.Regions;
 
       
 
-        public async Task<ICollection<Region>> Index()
+        public ICollection<Region> Index()
         {
-            return (ICollection<Region>)await _ContextRegion.Regions.ToListAsync();
+            return (ICollection<Region>)_ContextRegion.Regions;
         }
     }
 }

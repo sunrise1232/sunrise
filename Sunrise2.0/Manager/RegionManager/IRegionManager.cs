@@ -13,8 +13,8 @@ namespace Sunrise2._0.Manager.RegionManager
 
         public int FindRegion(string Name);
 
-        public Task<ICollection<Region>> GetAll();
+        public ICollection<Region> GetAll();
 
-        public Task<ICollection<Region>> Index();
+        public ICollection<Region> Index();
     }
 }

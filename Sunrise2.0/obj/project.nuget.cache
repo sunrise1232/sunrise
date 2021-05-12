@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UY/svp5BT+BXkffQj3rlbt3v5lOgzTUmadpb0jApounkHz1aGGpGsirANeVx+wEZ84ti5P9ZrHypq58PlY508Q==",
+  "dgSpecHash": "Nc+ST5T4Dxx3dI/ioOB034oDfKTu4QRLwDHBOm2TLZlzrHMkm7V5Fi1VB0l0EVndKR05HO2P0qKrqpM3J6wD7w==",
   "success": true,
-  "projectFilePath": "C:\\sunrise\\Sunrise2.0\\Sunrise2.0.csproj",
+  "projectFilePath": "C:\\sunrise — копия\\Sunrise2.0\\Sunrise2.0.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yaroslav\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.13\\microsoft.aspnetcore.cryptography.internal.3.1.13.nupkg.sha512",
     "C:\\Users\\yaroslav\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.13\\microsoft.aspnetcore.cryptography.keyderivation.3.1.13.nupkg.sha512",

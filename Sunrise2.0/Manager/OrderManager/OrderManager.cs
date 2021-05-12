@@ -22,16 +22,16 @@ namespace Sunrise2._0.Manager.OrderManager
             _ContextOrder = context;
         }
 
-        public async Task Add(Order purch)
+        public void Add(Order purch)
         {
             purch.Date = DateTime.Now;
-           await _ContextOrder.Orders.AddAsync(purch);
-           await _ContextOrder.SaveChangesAsync();
+            _ContextOrder.Orders.Add(purch);
+            _ContextOrder.SaveChanges();
         }
 
-        public async Task<ICollection<Order>> GetAll()
+        public ICollection<Order> GetAll()
         {
-            return await _ContextOrder.Orders.Include(o => o.Tour.Hotel.Town.Region).Include(o => o.Client).Include(o => o.Airline).ToListAsync();
+            return _ContextOrder.Orders.Include(o => o.Tour.Hotel.Town.Region).Include(o => o.Client).Include(o => o.Airline).ToList();
         }
 
     }

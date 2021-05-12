@@ -22,9 +22,9 @@ namespace Sunrise2._0.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Town> Towns { get; set; }
-        public DbSet<Region> Regions { get;  set; }
-        public DbSet<Airline> Airlines { get;  set; }
-        public DbSet<Image> Images { get;  set; }
+        public DbSet<Region> Regions { get; internal set; }
+        public DbSet<Airline> Airlines { get; internal set; }
+        public DbSet<Image> Images { get; internal set; }
 
 
 

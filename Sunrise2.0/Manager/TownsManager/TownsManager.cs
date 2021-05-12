@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Sunrise2._0.Data;
 using Sunrise2._0.Storage.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Sunrise2._0.Manager.TownsManager
 {
@@ -13,13 +12,13 @@ namespace Sunrise2._0.Manager.TownsManager
         private SunriseContext _ContextTowns;
 
 
-        public void  Add(string Name, int RegionId)
+        public void Add(string Name, int RegionId)
         {
             Town Town= new Town();
             Town.Name = Name;
             Town.RegionId = RegionId;
-             _ContextTowns.Add(Town);
-             _ContextTowns.SaveChanges();
+            _ContextTowns.Add(Town);
+            _ContextTowns.SaveChanges();
         }
 
         public int FindTowns(string Name,int regionid)
@@ -38,6 +37,6 @@ namespace Sunrise2._0.Manager.TownsManager
         }
 
 
-        public async Task<ICollection<Town>> GetAll() => await _ContextTowns.Towns.ToListAsync();
+        public ICollection<Town> GetAll() => _ContextTowns.Towns.ToList();
     }
 }

@@ -6,7 +6,6 @@ using Sunrise2._0.Storage.Entity;
 using Sunrise2._0.Storage;
 using Sunrise2._0.Data;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Sunrise2._0.Manager.AirlineManger
 {
@@ -23,9 +22,9 @@ namespace Sunrise2._0.Manager.AirlineManger
         }
 
 
-        public async Task<ICollection<Airline>> GetAll()
+        public ICollection<Airline> GetAll()
         {
-            return await _ContextOrder.Airlines.ToListAsync();
+            return _ContextOrder.Airlines.ToList();
         }
 
     }

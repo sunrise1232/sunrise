@@ -9,7 +9,7 @@ namespace Sunrise2._0.Manager.AirlineManger
     public interface IAirlineManager
     {
 
-        public Task<ICollection<Airline>> GetAll();
+        public ICollection<Airline> GetAll();
 
     }
 }
