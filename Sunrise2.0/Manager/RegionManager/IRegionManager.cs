@@ -9,7 +9,7 @@ namespace Sunrise2._0.Manager.RegionManager
     public interface IRegionManager
     {
 
-        public Task Add(string Name);
+        public void Add(string Name);
 
         public int FindRegion(string Name);
 

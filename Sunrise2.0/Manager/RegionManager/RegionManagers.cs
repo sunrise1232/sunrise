@@ -13,12 +13,12 @@ namespace Sunrise2._0.Manager.RegionManager
 
         private SunriseContext _ContextRegion;
 
-        public async Task Add(string Name)
+        public void Add(string Name)
         {
             Region Region = new Region();
             Region.Name = Name;
-            await _ContextRegion.AddAsync(Region);
-            await _ContextRegion.SaveChangesAsync();
+             _ContextRegion.Add(Region);
+             _ContextRegion.SaveChanges();
         }
 
         public int FindRegion(string Name)

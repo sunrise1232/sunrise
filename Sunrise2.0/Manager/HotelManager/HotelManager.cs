@@ -14,13 +14,13 @@ namespace Sunrise2._0.Manager.HotelManager
         private SunriseContext _ContextHotel;
 
 
-        public async Task Add(string Name, int TownId)
+        public void Add(string Name, int TownId)
         {
             Hotel Hotel = new Hotel();
             Hotel.Name = Name;
             Hotel.TownId = TownId;
-            await _ContextHotel.AddAsync(Hotel);
-            await _ContextHotel.SaveChangesAsync();
+             _ContextHotel.Add(Hotel);
+             _ContextHotel.SaveChanges();
         }
 
         public HotelManager(SunriseContext context)

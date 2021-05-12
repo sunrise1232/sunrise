@@ -13,13 +13,13 @@ namespace Sunrise2._0.Manager.TownsManager
         private SunriseContext _ContextTowns;
 
 
-        public async Task Add(string Name, int RegionId)
+        public void  Add(string Name, int RegionId)
         {
             Town Town= new Town();
             Town.Name = Name;
             Town.RegionId = RegionId;
-            await _ContextTowns.AddAsync(Town);
-            await _ContextTowns.SaveChangesAsync();
+             _ContextTowns.Add(Town);
+             _ContextTowns.SaveChanges();
         }
 
         public int FindTowns(string Name,int regionid)
