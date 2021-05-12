@@ -9,8 +9,8 @@ namespace Sunrise2._0.Manager.TownsManager
     public interface ITownsManager
     {
 
-        public void Add(string Name, int RegionId);
+        public Task Add(string Name, int RegionId);
         public int FindTowns(string Name,int RegionId);
-        public ICollection<Town> GetAll();
+        public Task<ICollection<Town>> GetAll();
     }
 }

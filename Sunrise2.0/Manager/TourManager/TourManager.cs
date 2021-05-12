@@ -7,49 +7,52 @@ using Sunrise2._0.Data;
 using Sunrise2._0.Storage;
 using Sunrise2._0.Storage.Entity;
 
-
-
 namespace Sunrise2._0.Manager.TourManager
 {
-    public class TourManager:ITourManager
+    public class TourManager : ITourManager
     {
 
 
         private SunriseContext _ContextTour;
 
-    
-       
+
+
 
         public TourManager(SunriseContext context)
         {
             _ContextTour = context;
         }
 
-
-
-
-
-        public void Add(Tour Tour)
+        public async Task AddImage(byte[] Data, int TourId)
         {
-            _ContextTour.Add(Tour);
-            _ContextTour.SaveChanges();
+            Image Image = new Image();
+            Image.Data = Data;
+            Image.TourId = TourId;
+            await _ContextTour.Images.AddAsync(Image);
+            await _ContextTour.SaveChangesAsync();
         }
 
-        public void Delete(Tour Tour)
+
+
+        public async Task Add(Tour Tour)
+        {
+            await _ContextTour.AddAsync(Tour);
+            await _ContextTour.SaveChangesAsync();
+        }
+
+        public async Task Delete(Tour Tour)
         {
 
             _ContextTour.Tours.Remove(Tour);
-            _ContextTour.SaveChanges();
+            await _ContextTour.SaveChangesAsync();
         }
 
-        public void Edit(int TourId, string Description, int Price)
+        public async Task Edit(int TourId, string Description, int Price)
         {
             Tour r = _ContextTour.Tours.First(d => d.Id == TourId);
             r.Description = Description;
             r.Price = Price;
-            _ContextTour.SaveChanges();
-
-
+            await _ContextTour.SaveChangesAsync();
         }
 
 
@@ -62,16 +65,16 @@ namespace Sunrise2._0.Manager.TourManager
         }
 
 
-        public void IncRating(int TourId)
+        public async Task IncRating(int TourId)
         {
             var Tour = _ContextTour.Tours.FirstOrDefault(i => i.Id == TourId);
             Tour.Rating++;
-            _ContextTour.SaveChanges();
+            await _ContextTour.SaveChangesAsync();
         }
 
-        public ICollection<Tour> GetAll()
+        public async Task<ICollection<Tour>> GetAll()
         {
-            return  _ContextTour.Tours.Include(t => t.Hotel.Town.Region).ToList();
+            return await _ContextTour.Tours.Include(t => t.Hotel.Town.Region).ToListAsync();
         }
 
         public Image GetImage(int id)
@@ -79,15 +82,15 @@ namespace Sunrise2._0.Manager.TourManager
             return _ContextTour.Images.FirstOrDefault(i => i.TourId == id);
         }
 
-        public ICollection<Image> GetImages(int id)
+        public async Task<ICollection<Image>> GetImages(int id)
         {
-            return _ContextTour.Images.Where(i => i.TourId == id).ToList();
+            return await _ContextTour.Images.Where(i => i.TourId == id).ToListAsync();
         }
 
 
-        public ICollection<Tour> SearchManager(string Name)
+        public async Task<ICollection<Tour>> SearchManager(string Name)
         {
-            return _ContextTour.Tours.Include(t => t.Hotel.Town.Region).Where(t => t.Hotel.Town.Name == Name).ToList();
+            return await _ContextTour.Tours.Include(t => t.Hotel.Town.Region).Where(t => t.Hotel.Town.Name == Name).ToListAsync();
         }
 
 

@@ -9,17 +9,18 @@ namespace Sunrise2._0.Manager.TourManager
     public interface ITourManager
     {
 
-        public void Add(Tour Tour);
+        public Task Add(Tour Tour);
 
-        public void Delete(Tour Tour);
-        public void Edit(int TourId, string Description, int Price);
+        public Task AddImage(byte[] Data, int TourId);
+        public Task Delete(Tour Tour);
+        public Task Edit(int TourId, string Description, int Price);
         public Tour FindTour(int id);
-        public ICollection<Tour> GetAll();
+        public Task<ICollection<Tour>> GetAll();
         public Image GetImage(int id);
-        public ICollection<Image> GetImages(int id);
-        public void IncRating(int TourId);
+        public Task<ICollection<Image>> GetImages(int id);
+        public Task IncRating(int TourId);
 
-        public ICollection<Tour> SearchManager(string Name);
+        public Task<ICollection<Tour>> SearchManager(string Name);
 
 
 

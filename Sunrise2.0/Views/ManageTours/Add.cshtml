@@ -4,6 +4,8 @@
 @inject UserManager<Client> UserManager
 
 
+
+
 @{
     ViewData["Title"] = "Добавление тура";
 }
@@ -15,20 +17,24 @@
         <div class="container">
             <form method="post">
 
-                    <label for="Description">Описание</label>
-                    <textarea maxlength="170" required="Description" type="text" name="Description" value=""></textarea>
 
-                    <label for="Hotel">Отель</label>
-                    <input required id="Hotel" type="text" name="HotelName" value="" />
+                <input name="Data" type="file" />
 
-                    <label for="Town">Город</label>
-                    <input required id="Town" type="text" name="TownName" value="" />
 
-                    <label for="Region">Регион</label>
-                    <input required id="Region" type="text" name="RegionName" value="" />
+                <label for="Description">Описание</label>
+                <textarea maxlength="170" required="Description" type="text" name="Description" value=""></textarea>
 
-                    <label for="Price">Цена(РУБ)</label>
-                    <input required id="Price" type="number" name="Price" value="" />
+                <label for="Hotel">Отель</label>
+                <input required id="Hotel" type="text" name="HotelName" value="" />
+
+                <label for="Town">Город</label>
+                <input required id="Town" type="text" name="TownName" value="" />
+
+                <label for="Region">Регион</label>
+                <input required id="Region" type="text" name="RegionName" value="" />
+
+                <label for="Price">Цена(РУБ)</label>
+                <input required id="Price" type="number" name="Price" value="" />
 
 
                 <button type="submit" class="manage-tours__button">Добавить тур</button>

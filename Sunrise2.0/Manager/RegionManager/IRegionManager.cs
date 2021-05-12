@@ -9,12 +9,12 @@ namespace Sunrise2._0.Manager.RegionManager
     public interface IRegionManager
     {
 
-        public void Add(string Name);
+        public Task Add(string Name);
 
         public int FindRegion(string Name);
 
-        public ICollection<Region> GetAll();
+        public Task<ICollection<Region>> GetAll();
 
-        public ICollection<Region> Index();
+        public Task<ICollection<Region>> Index();
     }
 }
