@@ -132,7 +132,7 @@ namespace Sunrise2._0.Controllers
 
 
 
-                return Redirect("/ManageTours/Add");
+                return Redirect("/ManageTours");
         }
     }
 }

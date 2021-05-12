@@ -19,7 +19,7 @@
         <div class="service">
             <div class="container">
                 <h3 class="service__title">Управление турами</h3>
-                <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
+                <div class="service__descr">Удаление, добавление и редактирование существующих туров</div>
             </div>
         </div>
     
@@ -31,7 +31,7 @@
             {
     
                 <form class="manage-tours__tour" method="post">
-                    <a class="manage-tours__location" href="~/Catalog/Buy?TourId=@t.Id">
+                    <a class="manage-tours__location" style="min-width: 300px" href="~/Catalog/Buy?TourId=@t.Id">
                         <span>@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name, @t.Hotel.Name </span>
                     </a>
     
