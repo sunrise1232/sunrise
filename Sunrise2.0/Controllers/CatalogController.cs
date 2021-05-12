@@ -105,10 +105,12 @@ namespace Sunrise2._0.Controllers
         
 
         [HttpPost]
-        public IActionResult Buy(Order purch)
+        public async Task<IActionResult> Buy(Order purch)
         {
             ClaimsPrincipal currentUser = this.User;
             purch.ClientId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+
             _managerorder.Add(purch);
             _managertour.IncRating(purch.TourId);
 

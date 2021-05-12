@@ -1,23 +1,32 @@
-﻿
+﻿@using Sunrise2._0.Areas.Identity.Data
+@using Microsoft.AspNetCore.Identity;
+
+@inject UserManager<Client> UserManager
+
+
 @{
     ViewData["Title"] = "Редактирование тура";
 }
 
+@if (UserManager.GetUserName(User) == "aboba@mail.ru")
+{
 
-<div>
-    <div class="container">
-        <form method="post">
-            <label for="Description">Описание</label>
-            <input required="Description" type="text" name="Description" value="" />
+    <div class="manage-tours__edit">
+        <div class="container">
+            <form method="post">
 
-            <label for="Price">Цена</label>
-            <input required id="Price" type="text" name="Price" value="" />
+                    <label for="Description">Описание</label>
+                    <textarea maxlength="170" required="Description" type="text" name="Description" value=""></textarea>
 
-            <input type="hidden" name="TourId" value="@ViewBag.TourId" />
+                    <label for="Price">Цена(РУБ)</label>
+                    <input required id="Price" type="number" name="Price" value="" />
 
-            <button type="submit" class="button">Редактировать</button>
+                    <input type="hidden" name="TourId" value="@ViewBag.TourId" />
 
-        </form>
+
+                <button type="submit" style="font-size: 17px;" class="manage-tours__button">Редактировать</button>
+
+            </form>
+        </div>
     </div>
-</div>
-
+}

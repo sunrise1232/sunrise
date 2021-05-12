@@ -26,6 +26,8 @@ namespace Sunrise2._0.Data
         public DbSet<Airline> Airlines { get; internal set; }
         public DbSet<Image> Images { get; internal set; }
 
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

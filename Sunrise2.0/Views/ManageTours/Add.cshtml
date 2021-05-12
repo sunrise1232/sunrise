@@ -1,30 +1,40 @@
-﻿
+﻿@using Sunrise2._0.Areas.Identity.Data
+@using Microsoft.AspNetCore.Identity;
+
+@inject UserManager<Client> UserManager
+
+
 @{
     ViewData["Title"] = "Добавление тура";
 }
 
+@if (UserManager.GetUserName(User) == "aboba@mail.ru")
+{
 
-<div>
-    <div class="container">
-        <form method="post">
-            <label for="Description">Описание</label>
-            <input required="Description" type="text" name="Description1" value="" />
+    <div class="manage-tours__add">
+        <div class="container">
+            <form method="post">
 
-            <label for="Hotel">Отель</label>
-            <input required id="Hotel" type="text" name="HotelName1" value="" />
+                    <label for="Description">Описание</label>
+                    <textarea maxlength="170" required="Description" type="text" name="Description" value=""></textarea>
 
-            <label for="Town">Город</label>
-            <input required id="Town" type="text" name="TownName1" value="" />
+                    <label for="Hotel">Отель</label>
+                    <input required id="Hotel" type="text" name="HotelName" value="" />
 
-            <label for="Region">Регион</label>
-            <input required id="Region" type="text" name="RegionName1" value="" />
+                    <label for="Town">Город</label>
+                    <input required id="Town" type="text" name="TownName" value="" />
 
-            <label for="Price">Цена</label>
-            <input required id="Price" type="text" name="Price1" value="" />
+                    <label for="Region">Регион</label>
+                    <input required id="Region" type="text" name="RegionName" value="" />
 
-            <button type="submit" class="button">Добавить</button>
+                    <label for="Price">Цена(РУБ)</label>
+                    <input required id="Price" type="number" name="Price" value="" />
 
-        </form>
+
+                <button type="submit" class="manage-tours__button">Добавить тур</button>
+
+            </form>
+        </div>
     </div>
-</div>
 
+}

@@ -1,4 +1,8 @@
-﻿
+﻿@using Sunrise2._0.Areas.Identity.Data
+@using Microsoft.AspNetCore.Identity;
+
+@inject UserManager<Client> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,10 +39,13 @@
                     <li class="nav__link">
                         <a href="~/Catalog">Туры</a>
                     </li>
-
-                    <li class="nav__link">
-                        <a href="~/ManageTours">Управление</a>
-                    </li>
+                    
+                    @if (UserManager.GetUserName(User) == "aboba@mail.ru")
+                            {
+                        <li class="nav__link">
+                            <a href="~/ManageTours">Управление</a>
+                        </li>
+                    }
 
                     <partial name="_LoginPartial"></partial>
 
@@ -61,35 +68,34 @@
 
                 <div class="col-md-4">
                     <ul class="nav footer__nav">
-                        <h3 class="footer__title">sssss</h3>
-                        <li class="nav__link"><a href="#">123</a></li>
-                        <li class="nav__link"><a href="#">123</a></li>
-                        <li class="nav__link"><a href="#">123</a></li>
+                        <h3 class="footer__title">Главная</h3>
+                        <li class="nav__link"><a href="~/Home#advantages">О нас</a></li>
+                        <li class="nav__link"><a href="~/Home#cases">Испытать удачу</a></li>
+                        <li class="nav__link"><a href="~/Home#popular-tours">Популярные туры</a></li>
                     </ul>
                     <ul class="nav footer__nav">
-                        <h3 class="footer__title">sssss</h3>
-                        <li class="nav__link"><a href="#">123</a></li>
-                        <li class="nav__link"><a href="#">123</a></li>
-                        <li class="nav__link"><a href="#">123</a></li>
+                        <h3 class="footer__title">Туры</h3>
+                        <li class="nav__link"><a href="~/Catalog">Выбор туров</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-4">
-                    <h3 class="footer__title">dsfg</h3>
+                    <h3 class="footer__title">Документы</h3>
                     <div class="footer__partners">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
+                        <img src="" alt="1">
+                        <img src="" alt="2">
+                        <img src="" alt="3">
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <h3 class="footer__title">dsfg</h3>
+                    <h3 class="footer__title">Связаться с нами</h3>
                     <div class="footer__about">
-                        123
                     </div>
-                    <div class="footer__socials">
-
+                    <div class="footer__socials" style="font-size:20px">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
 

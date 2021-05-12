@@ -1024,9 +1024,13 @@ C:\Users\yaroslav\Desktop\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Sunrise2.0.
 C:\Users\yaroslav\Desktop\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Sunrise2.0.genruntimeconfig.cache
 C:\Users\yaroslav\Desktop\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\BuyResult.cshtml.g.cs
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\BuyResult.cshtml.g.cs
-C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Sunrise2.0.csprojAssemblyReference.cache
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Add.cshtml.g.cs
 C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Catalog\BuyResult.cshtml.g.cs
 C:\Users\Соня\Desktop\sunrise\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Add.cshtml.g.cs
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Index.cshtml.g.cs
 C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\ManageTours\Edit.cshtml.g.cs
+C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Sunrise2.0.csprojAssemblyReference.cache
+C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs
+C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
+C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+C:\sunrise\Sunrise2.0\obj\Debug\netcoreapp3.1\Razor\Views\Roles\UserList.cshtml.g.cs

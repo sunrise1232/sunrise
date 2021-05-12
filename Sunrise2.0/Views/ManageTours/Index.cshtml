@@ -1,36 +1,49 @@
-﻿@using Sunrise2._0.Storage.Entity
-@model IEnumerable<Tour>
+﻿@using Sunrise2._0.Areas.Identity.Data
+    @using Microsoft.AspNetCore.Identity;
+    
+    @inject UserManager<Client> UserManager
+    
+    
+    @using Sunrise2._0.Storage.Entity
+    @model IEnumerable<Tour>
+    
+    
+    @{
+        ViewData["Title"] = "Управление турами";
+    }
+    
+    
+    @if (UserManager.GetUserName(User) == "aboba@mail.ru")
+    {
+    
+        <div class="service">
+            <div class="container">
+                <h3 class="service__title">Управление турами</h3>
+                <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
+            </div>
+        </div>
+    
+    <div class="manage-tours">
+        <div class="container">
 
-
-@{
-    ViewData["Title"] = "Управление турами";
-}
-
-<div class="service">
-    <div class="container">
-        <h3 class="service__title">Управление турами</h3>
-        <div class="service__descr">A responsive, retina-ready & wide multipurpose template.</div>
+            <h3>Туры</h3>
+            @foreach (var t in Model)
+            {
+    
+                <form class="manage-tours__tour" method="post">
+                    <a class="manage-tours__location" href="~/Catalog/Buy?TourId=@t.Id">
+                        <span>@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name, @t.Hotel.Name </span>
+                    </a>
+    
+                    <input type="hidden" name="TourId" value="@t.Id" />
+    
+    
+                    <button class="manage-tours__button" name="action" value="delete" type="submit">Удалить</button>
+                    <a class="manage-tours__button" href="~/ManageTours/Edit?TourId=@t.Id">Редактировать</a>
+                </form>
+            }
+    
+            <a class="manage-tours__button" style="font-size: 17px;" href="~/ManageTours/Add">Добавить тур</a>
+        </div>
     </div>
-</div>
-
-<div class="manage-tours">
-    <div class="container">
-        @foreach (var t in Model)
-        {
-
-        <form method="post">
-            <a href="~/Catalog/Buy?TourId=@t.Id">
-                <span>@t.Hotel.Town.Region.Name, @t.Hotel.Town.Name, @t.Hotel.Name </span>
-            </a>
-
-                <input type="hidden" name="TourId" value="@t.Id" />
-
-
-                <button name="action" value="delete" type="submit">Удалить</button>
-                <a href="~/ManageTours/Edit?TourId=@t.Id">Редактировать</a>
-        </form>
-        }
-
-        <a href="~/ManageTours/Add">Добавить тур</a>
-    </div>
-</div>
+    }

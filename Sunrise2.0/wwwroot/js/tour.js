@@ -29,10 +29,10 @@ function changePriceInput(selector) {
             
 
 
-            priceInput.value = tourPrice * nights.value * (Number(adults.value) + Number(children.value)*0.5) +
+            priceInput.value = Math.floor(tourPrice * nights.value * (Number(adults.value) + Number(children.value)*0.5) +
                 0.2 * meals * tourPrice * nights.value * (Number(adults.value) + Number(children.value)*0.5) +
                 0.05 * wifi * tourPrice * nights.value + 
-                Number(airlinePrice) * tourPrice * (Number(adults.value) + Number(children.value)*0.5);
+                Number(airlinePrice) * tourPrice * (Number(adults.value) + Number(children.value)*0.5));
             priceDiv.textContent = priceInput.value;
 
         });

@@ -88,50 +88,51 @@ namespace Sunrise2._0.Controllers
 
 
        [HttpPost]
-        public IActionResult Add(string Description1, string HotelName1, string TownName1, string RegionName1, int Price1)
+        public IActionResult Add(string Description, string HotelName, string TownName, string RegionName, int Price)
         {
             Tour Tour = new Tour();
 
-            Tour.Description = Description1;
+            Tour.Description = Description;
 
             int idregion;
             try
-            {  idregion = _managerregion.FindRegion(RegionName1); }
+            {  idregion = _managerregion.FindRegion(RegionName); }
             catch
             {
-                _managerregion.Add(RegionName1);
-                 idregion = _managerregion.FindRegion(RegionName1);
+                _managerregion.Add(RegionName);
+                 idregion = _managerregion.FindRegion(RegionName);
             }
 
 
 
             int idtown;
             try
-            { idtown = _managertowns.FindTowns(TownName1, idregion); }
+            { idtown = _managertowns.FindTowns(TownName, idregion); }
             catch
             {
-                _managertowns.Add(TownName1, idregion);
-                idtown = _managertowns.FindTowns(TownName1, idregion);
+                _managertowns.Add(TownName, idregion);
+                idtown = _managertowns.FindTowns(TownName, idregion);
             }
 
             int idHotel;
             try
-            { idHotel = _managerhotel.FindHotel(HotelName1, idtown); }
+            { idHotel = _managerhotel.FindHotel(HotelName, idtown); }
             catch
             {
-                _managerhotel.Add(HotelName1, idtown);
-                idHotel = _managerhotel.FindHotel(HotelName1, idtown);
+                _managerhotel.Add(HotelName, idtown);
+                idHotel = _managerhotel.FindHotel(HotelName, idtown);
             }
 
             Tour.HotelId = idHotel;
          
             
-            Tour.Price = Price1;
+            Tour.Price = Price;
 
             _managertour.Add(Tour);
 
 
-            return Redirect("/ManageTours/Add");
+
+                return Redirect("/ManageTours/Add");
         }
     }
 }

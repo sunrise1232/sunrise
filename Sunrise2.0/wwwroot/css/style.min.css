@@ -1089,3 +1089,84 @@ body {
     .email-verification:hover i {
         color: #00c54c
     }
+
+.manage-tours {
+    padding: 80px 0
+}
+
+.manage-tours__tour {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 15px
+}
+
+.manage-tours__location {
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 7px;
+    margin-right: 30px;
+    color: #282828;
+    transition: .1s linear all
+}
+
+    .manage-tours__location:hover {
+        color: #282828;
+        border-color: #00aeef
+    }
+
+.manage-tours__button {
+    border: none;
+    background: 0 0;
+    text-decoration: none;
+    color: #282828;
+    margin-right: 10px;
+    transition: .1s linear all
+}
+
+    .manage-tours__button:hover {
+        color: #00aeef
+    }
+
+.manage-tours__add, .manage-tours__edit {
+    padding: 80px 0
+}
+
+    .manage-tours__add form, .manage-tours__edit form {
+        font-size: 15px
+    }
+
+        .manage-tours__add form label, .manage-tours__edit form label {
+            display: block;
+            margin-bottom: 5px
+        }
+
+        .manage-tours__add form input, .manage-tours__add form textarea, .manage-tours__edit form input, .manage-tours__edit form textarea {
+            display: block;
+            margin-bottom: 20px;
+            outline: 0;
+            border: 1px solid rgba(0,0,0,.3);
+            border-radius: 5px;
+            transition: .1s linear all;
+            resize: none
+        }
+
+            .manage-tours__add form input:focus, .manage-tours__add form textarea:focus, .manage-tours__edit form input:focus, .manage-tours__edit form textarea:focus {
+                border-color: #00aeef
+            }
+
+        .manage-tours__add form textarea, .manage-tours__edit form textarea {
+            width: 400px;
+            height: 100px
+        }
+
+        .manage-tours__add form .manage-tours__button, .manage-tours__edit form .manage-tours__button {
+            font-size: 17px;
+            color: #00aeef;
+            opacity: 1
+        }
+
+            .manage-tours__add form .manage-tours__button:hover, .manage-tours__edit form .manage-tours__button:hover {
+                opacity: .7
+            }
